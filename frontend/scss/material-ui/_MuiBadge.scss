@@ -1,0 +1,30 @@
+.MuiBadge {
+    &-badge {
+        font-family: inherit;
+        font-size: $badge-font-size;
+        font-weight: $badge-font-weight;
+        line-height: $badge-line-height;
+        padding: $badge-padding;
+        min-width: $badge-min-width;
+        height: $badge-height;
+        border-radius: $badge-border-radius;
+        box-shadow: $badge-box-shadow;
+    }
+
+    &-dot {
+        padding: 0;
+        min-width: $badge-dot-size;
+        height: $badge-dot-size;
+        border-radius: 50%;
+    }
+
+    &-colorPrimary {
+        background-color: $color-primary;
+        color: $badge-primary-color;
+    }
+
+    &-colorSecondary {
+        background-color: $color-secondary;
+        color: $badge-secondary-color;
+    }
+}

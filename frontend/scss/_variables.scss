@@ -1,0 +1,444 @@
+@use "sass:math";
+@import './color-pallete-variables';
+
+$font-family-primary: 'Poppins', 'Arial', sans-serif, monospace;
+$font-family: $font-family-primary;
+$font-size-small: 1.2rem;
+$font-size-medium: 1.4rem;
+$font-size-xmedium: 1.6rem;
+$font-size-large: 2rem;
+$font-size: $font-size-xmedium;
+$font-weight-thin: 300;
+$font-weight: 400;
+$font-weight-strong: 500;
+$font-weight-bold: 700;
+$line-height: 1.4;
+
+$color-primary: #36b4c4;
+$color-primary-light: #dff4f6;
+$color-primary-lighten: #ebf8f9;
+$color-primary-dark: #2b8a96;
+$color-primary-text: #fff;
+$color-primary-border-color: #d9ebed;
+
+$color-secondary-light: #ae82a7;
+$color-secondary: #ad57a0;
+$color-secondary-dark: #b31acf;
+$color-secondary-text: #fff;
+$color-secondary-border-color: #e5d3e2;
+
+$color-warning: #ffb800;
+$color-warning-text: #fff;
+
+$color-success: #00c914;
+$color-success-text: #fff;
+
+$color-info: #2c9aff;
+$color-info-text: #fff;
+
+$color-error: #e31313;
+$color-text-note: #777777;
+
+// Body
+$body-bg-color: $gray-lighten-6;
+$body-color: $gray-darken-4;
+
+// Border radius
+$border-radius-sm: 0.4rem;
+$border-radius-lg: 1rem;
+$border-radius: $border-radius-lg;
+
+$border-color: $gray-lighten-2;
+
+// Box shadow
+$box-shadow-sm: 0 2px 1px -1px rgb($black, 0.2), 0 1px 1px 0 rgb($black, 0.14), 0 1px 3px 0 rgb($black, 0.12);
+$box-shadow-md: 0 0rem 0.2rem 0 rgba($black, 0.08), 0 0.2rem 0.6rem 0 rgba($black, 0.16);
+$box-shadow-lg: 0 0.4rem 1.6rem -0.1rem rgba(0, 0, 0, 0.25);
+
+// Z-index
+$modal-z-index: 1300;
+$tooltip-z-index: 1500;
+
+// Grid & spacing
+
+$spacer: 0.8rem;
+
+$spacing-scale-0: 0;
+$spacing-scale-1: $spacer * 0.25; // .2rem
+$spacing-scale-2: $spacer * 0.5; // .4rem
+$spacing-scale-3: $spacer * 0.75; // .6rem
+$spacing-scale-4: $spacer; // .8rem
+$spacing-scale-5: $spacer * 1.25; // 1rem
+$spacing-scale-6: $spacer * 1.5; // 1.2rem
+$spacing-scale-7: $spacer * 1.75; // 1.4rem
+$spacing-scale-8: $spacer * 2; // 1.6rem
+$spacing-scale-9: $spacer * 2.25; // 1.8rem
+$spacing-scale-10: $spacer * 2.5; // 2rem
+$spacing-scale-11: $spacer * 2.75; // 2.2rem
+$spacing-scale-12: $spacer * 3; // 2.4rem
+$spacing-scale-13: $spacer * 3.25; // 2.6rem
+$spacing-scale-14: $spacer * 3.5; // 2.8rem
+$spacing-scale-15: $spacer * 3.75; // 3rem
+$spacing-scale-16: $spacer * 4; // 3.2rem
+$spacing-scale-17: $spacer * 4.25; // 3.4rem
+$spacing-scale-18: $spacer * 4.5; // 3.6rem
+$spacing-scale-19: $spacer * 4.75; // 3.8rem
+$spacing-scale-20: $spacer * 5; // 4rem
+$spacing-scale-24: $spacer * 6; // 4.8rem
+
+$spacing-scale: (
+    '0': $spacing-scale-0,
+    '1': $spacing-scale-1,
+    '2': $spacing-scale-2,
+    '3': $spacing-scale-3,
+    '4': $spacing-scale-4,
+    '5': $spacing-scale-5,
+    '6': $spacing-scale-6,
+    '7': $spacing-scale-7,
+    '8': $spacing-scale-8,
+    '9': $spacing-scale-9,
+    '10': $spacing-scale-10,
+    '11': $spacing-scale-11,
+    '12': $spacing-scale-12,
+    '13': $spacing-scale-13,
+    '14': $spacing-scale-14,
+    '15': $spacing-scale-15,
+    '16': $spacing-scale-16,
+    '17': $spacing-scale-17,
+    '18': $spacing-scale-18,
+    '19': $spacing-scale-19,
+    '20': $spacing-scale-20,
+    '24': $spacing-scale-24
+);
+
+// Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$breakpoints: (
+    'xs': $breakpoint-xs,
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    'xxl': $breakpoint-xxl
+);
+
+// Container
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1218px
+);
+$container-gutters: $spacing-scale-12;
+
+// Heading
+$heading-1-font-size: $font-size * 2.5;
+$heading-2-font-size: $font-size * 2;
+$heading-3-font-size: $font-size * 1.75;
+$heading-4-font-size: $font-size * 1.5;
+$heading-5-font-size: $font-size * 1.25;
+$heading-6-font-size: $font-size;
+$heading-font-weight: $font-weight-strong;
+$heading-color: $body-color;
+$heading-line-height: inherit;
+$heading-gutter-bottom: $spacing-scale-6;
+$heading-gutter-right: $spacing-scale-3;
+
+// MuiPaper
+$paper-color: inherit;
+$paper-bg-color: $white;
+$paper-border-radius: $border-radius-sm;
+$paper-elevations: (
+    1: 0 0 0 0.1rem $border-color,
+    2: $box-shadow-sm,
+    4: $box-shadow-md,
+    6: 0 2px 6px 0 rgba($black, 0.12),
+    8: $box-shadow-lg,
+    16: 0 0.4rem 1.6rem -0.1rem rgba($black, 0.25)
+);
+
+// MuiButton
+$btn-color: $gray-darken-4;
+$btn-bg-color: $gray-lighten-3;
+$btn-hover-bg-color: $white;
+$btn-small-font-size: $font-size-small;
+$btn-medium-font-size: $font-size-xmedium;
+$btn-large-font-size: $font-size-xmedium;
+$btn-font-size: $btn-medium-font-size;
+$btn-font-weight: 400;
+$btn-text-transform: none;
+$btn-line-height: 1.2;
+$btn-large-padding-x: $spacing-scale-8;
+$btn-large-min-height: 5rem;
+$btn-medium-padding-x: $spacing-scale-8;
+$btn-medium-min-height: 4rem;
+$btn-small-padding-x: $spacing-scale-6;
+$btn-small-min-height: 3.4rem;
+$btn-border-width: 0.1rem;
+$btn-border-radius: $border-radius-sm;
+$btn-outlined-hover-opacity: 0.065;
+$btn-outlined-border-opacity: 0.55;
+$btn-disabled-opacity: 0.4;
+$btn-hover-opacity: 0.8;
+$btn-focus-visible-box-shadow: 0 0px 0px 0.1rem $white, 0 0px 0px 0.4rem rgba($color-primary, 0.2);
+$btn-transition: background-color 0.2s ease;
+
+// MuiLink
+$link-text-underline-offset: 0.1rem;
+
+// Icon
+$icon-color: $gray-darken-1;
+$icon-xxlarge-font-size: 3rem;
+$icon-xlarge-font-size: 2.8rem;
+$icon-large-font-size: 2.4rem;
+$icon-large-padding: $spacing-scale-6;
+$icon-medium-font-size: 2.2rem;
+$icon-medium-padding: $spacing-scale-4;
+$icon-xsmall-padding: $spacing-scale-4;
+$icon-xsmall-font-size: 2rem;
+$icon-small-font-size: 1.8rem;
+$icon-small-padding: $spacing-scale-4;
+
+// MuiIconButton
+$icon-btn-border-radius: 1rem;
+
+// MuiToggleButton
+$toggle-btn-selected-box-shadow: inset 0 0 0 0.1rem rgba($body-color, 0.25);
+$toggle-btn-primary-selected-box-shadow: inset 0 0 0 0.1rem rgba($color-primary, 0.6);
+$toggle-btn-secondary-selected-box-shadow: inset 0 0 0 0.1rem rgba($color-secondary, 0.6);
+
+// MuiChip
+$chip-icon-font-size: $icon-small-font-size;
+$chip-label-padding-x: $btn-small-padding-x;
+$chip-label-line-height: $btn-line-height;
+$chip-delete-icon-font-size: 1.5rem;
+$chip-filled-color: $btn-color;
+$chip-filled-bg-color: $gray-lighten-4;
+$chip-outlined-border-color: rgba($black, 0.14);
+$chip-outlined-border-width: 0.1rem;
+$chip-outlined-hover-opacity: $btn-outlined-hover-opacity;
+$chip-medium-font-size: 1.3rem;
+$chip-medium-min-height: 3rem;
+$chip-medium-border-radius: 1.5rem;
+$chip-small-font-size: $btn-small-font-size;
+$chip-small-min-height: 2.6rem;
+$chip-small-border-radius: 1.3rem;
+$chip-dimmed-border-radius: $border-radius-sm;
+$chip-dimmed-font-weight: $font-weight-strong;
+$chip-dimmed-letter-spacing: 0.4px;
+
+// Simplebar
+$simplebar-track-size: 1rem;
+$simplebar-scrollbar-min-size: 1rem;
+$simplebar-offset: 0.2rem;
+$simplebar-scrollbar-bg-color: $gray;
+$simplebar-scrollbar-opacity: 0.45;
+$simplebar-scrollbar-hover-opacity: 0.8;
+
+// MuiList
+$list-padding-y: $spacing-scale-4;
+$list-padding-x: $spacing-scale-8;
+$list-item-icon-font-size: $icon-large-font-size;
+$list-item-hover-bg-color: $gray-lighten-4;
+$list-item-selected-bg-color: rgba($color-primary, 0.12);
+$list-item-selected-hover-bg-color: rgba($color-primary, 0.08);
+$list-item-focus-visible-bg-color: rgba($black, 0.12);
+$list-item-min-height: $btn-medium-min-height;
+$list-item-multiline-text-line-height: 1.2;
+$list-item-multiline-text-primary-font-size: inherit;
+$list-item-multiline-text-primary-margin-bottom: $spacing-scale-3;
+$list-item-multiline-text-secondary-font-size: inherit;
+$list-item-multiline-text-secondary-color: $color-text-note;
+
+// MuiTable
+$table-striped-bg-color: #f9f9f9;
+$table-header-bg-color: $paper-bg-color;
+$table-header-color: $icon-color;
+$table-header-font-size: $font-size-medium;
+$table-header-font-weight: $font-weight-bold;
+$table-header-text-transform: uppercase;
+$table-header-border-bottom: 0.2rem solid $border-color;
+$table-header-active-text-color: $color-primary;
+$table-header-hover-text-color: inherit;
+$table-header-hover-bg-color: $list-item-hover-bg-color;
+$table-header-icon-font-size: $icon-small-font-size;
+$table-header-icon-margin-x: $spacing-scale-1;
+$table-header-cell-large-min-height: 6rem;
+$table-row-hover-bg-color: $list-item-hover-bg-color;
+$table-row-selected-bg-color: $list-item-selected-bg-color;
+$table-row-selected-hover-bg-color: rgba($color-primary, 0.2);
+$table-cell-padding-x: $list-padding-x;
+$table-cell-padding-y: $list-padding-y;
+$table-cell-large-min-height: 7.4rem;
+$table-cell-medium-min-height: 6rem;
+$table-cell-small-min-height: $list-item-min-height;
+$table-simplebar-track-size: 1.2rem;
+
+// MuiMenu
+$menu-item-min-height: 3.8rem;
+$menu-paper-box-shadow: map-get($paper-elevations, 4);
+
+// Popper
+$popper-arrow-size: 1.2rem !default;
+$popper-arrow-border: 1px solid rgba(#000, 0.04) !default;
+
+// MuiCheckbox
+$checkbox-padding: $spacing-scale-4;
+
+// MuiTooltip
+$tooltip-font-size: $font-size-small;
+$tooltip-font-weight: 400;
+$tooltip-line-height: 1.2;
+$tooltip-letter-spacing: 0.6px;
+$tooltip-padding: $spacing-scale-4 $spacing-scale-6;
+$tooltip-margin: $spacing-scale-5;
+$tooltip-bg-color: $white;
+$tooltip-color: $black;
+$tooltip-max-width: 32rem;
+$tooltip-box-shadow: 0 0 0 0.1rem rgba($black, 0.12), 0 0.2rem 0.1rem 0 rgba($black, 0.05),
+    0 0.2rem 0.6rem 0 rgba($black, 0.12);
+$tooltip-border-radius: $border-radius-sm;
+
+// MuiAvatar
+$avatar-font-size: $font-size-large;
+$avatar-font-weight: 400;
+$avatar-text-transform: uppercase;
+$avatar-bg-color: $gray-lighten-3;
+$avatar-color: rgba($btn-color, 0.65);
+$avatar-size: 4rem;
+$avatar-rounded-border-radius: $border-radius-sm;
+
+// MuiBadge
+$badge-font-size: $font-size-small;
+$badge-font-weight: 400;
+$badge-line-height: 1;
+$badge-color: $body-color;
+$badge-primary-color: $white;
+$badge-secondary-color: $white;
+$badge-padding: 0 $spacing-scale-3;
+$badge-min-width: 2.2rem;
+$badge-height: 2.2rem;
+$badge-border-radius: $font-size-small;
+$badge-dot-size: 0.8rem;
+$badge-box-shadow: none;
+
+// MuiSwitch
+$switch-track-bg-color: $gray-lighten-2;
+$switch-track-box-shadow: inset 0 0.1rem 0.4rem -0.1rem rgba($black, 0.22);
+$switch-thumb-box-shadow: $box-shadow-sm;
+$switch-primary-thumb-color: $white;
+$switch-secondary-thumb-color: $white;
+$switch-disabled-opacity: 0.2;
+$switch-checked-track-opacity: 0.8;
+$switch-size-medium-width: 5rem;
+$switch-size-medium-height: 2.8rem;
+$switch-size-medium-thumb-size: 2rem;
+$switch-size-small-width: 4rem;
+$switch-size-small-height: 2rem;
+$switch-size-small-thumb-size: 1.6rem;
+
+// MuiCircularProgress
+$circular-progress-size: 4.8rem;
+
+// MuiInputBase
+$input-border-color: #cccccc;
+$input-hover-border-color: #979797;
+$input-disabled-color: rgba($black, 0.13);
+$input-color-primary: rgba($color-primary, 0.8);
+$input-color-secondary: rgba($color-secondary, 0.8);
+$input-disabled-opacity: 0.5;
+
+$input-base-font-size: $font-size-xmedium;
+$input-base-font-weight: $font-weight;
+$input-base-line-height: $line-height;
+$input-base-letter-spacing: 0.2px;
+$input-base-color: $body-color;
+$input-base-bg-color: transparent;
+$input-base-placeholder-opacity: 0.6;
+$input-base-padding-x: $btn-medium-padding-x;
+$input-base-padding-y: $spacing-scale-5 - 0.05rem;
+$input-base-min-height: 5rem;
+$input-base-box-shadow: 0 0 0 0.1rem $input-border-color;
+$input-base-border-radius: $border-radius-sm;
+$input-base-disable-hover: false; // true or false
+$input-base-hover-box-shadow: 0 0 0 0.1rem $input-hover-border-color;
+$input-base-focused-box-shadow: 0 0 0 0.2rem $input-color-primary;
+$input-base-disabled-box-shadow: 0 0 0 0.1rem $input-disabled-color;
+$input-base-error-box-shadow: 0 0 0 0.1rem rgba($color-error, 0.55);
+$input-base-primary-focused-box-shadow: $input-base-focused-box-shadow;
+$input-base-secondary-focused-box-shadow: 0 0 0 0.2rem $input-color-secondary;
+$input-base-adornment-font-size: $icon-small-font-size;
+$input-base-adornment-color: rgba($input-base-color, 0.35);
+
+// MuiFormLabel
+$form-label-font-size: $font-size-small;
+$form-label-font-weight: 500;
+$form-label-line-height: 1.2;
+$form-label-color: $body-color;
+$form-label-letter-spacing: 0.6px;
+$form-label-max-width: 12rem;
+$form-label-align-top-margin: 0 0 $spacing-scale-4 $spacing-scale-1;
+$form-label-asterisk-color: $deep-orange-accent-3;
+
+// MuiFormHelperText
+$form-helper-text-font-size: $font-size-small;
+$form-helper-text-font-weight: $font-weight;
+$form-helper-text-error-font-weight: $font-weight;
+$form-helper-text-line-height: 1.2;
+$form-helper-text-letter-spacing: 0.4px;
+$form-helper-text-color: $color-text-note;
+$form-helper-text-margin: $spacing-scale-3 0 0 $spacing-scale-1;
+
+// MuiInput
+$input-standard-min-height: 5.8rem;
+$input-standard-label-transform-scale: math.div($form-label-font-size, $input-base-font-size);
+
+// MuiFilledInput
+$input-filled-box-shadow: 0 0.2rem 0rem -0.1rem $input-border-color;
+$input-filled-bg-color: $gray-lighten-5;
+$input-filled-hover-box-shadow: 0 0.2rem 0rem -0.1rem $input-hover-border-color;
+
+// MuiOutlinedInput
+$input-outlined-legend-spacing: $spacing-scale-3;
+$input-outlined-label-shrink-font-weight: $form-label-font-weight;
+$input-outlined-error-border-color: rgba($color-error, 0.55);
+$input-outlined-min-height: 5rem;
+
+// MuiSelect
+$select-min-width: 8rem;
+
+// MuiCustomAutocomplete
+$autocomplete-list-min-width: 16rem;
+$autocomplete-list-max-height: 32rem;
+$autocomplete-list-group-color: $color-text-note;
+$autocomplete-chip-border-radius: $input-base-border-radius;
+$autocomplete-chip-spacing: $spacing-scale-2;
+$autocomplete-input-min-width: 10rem;
+
+// MuiRating
+$rating-color: $gray-lighten-2;
+$rating-active-color: #ffb800;
+$rating-large-font-size: 4.6rem;
+$rating-large-label-font-size: $font-size-large;
+$rating-large-label-font-weight: $font-weight-strong;
+$rating-large-label-gap: $spacing-scale-4;
+$rating-large-label-line-height: inherit;
+$rating-medium-font-size: $icon-large-font-size;
+$rating-medium-label-font-size: inherit;
+$rating-medium-label-font-weight: $font-weight-strong;
+$rating-medium-label-gap: $spacing-scale-3;
+$rating-medium-label-line-height: inherit;
+$rating-small-font-size: 1.8rem;
+$rating-small-label-font-size: $font-size-medium;
+$rating-small-label-font-weight: $font-weight-strong;
+$rating-small-label-gap: $spacing-scale-3;
+$rating-small-label-line-height: 1;
+
+// Form
+$form-layout-gap: $spacing-scale-12;

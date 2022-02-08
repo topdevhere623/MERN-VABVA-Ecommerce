@@ -1,0 +1,262 @@
+$expanded-order-columns-template: calc(19rem - $table-cell-padding-x * 2) minmax(28rem, 1fr) minmax(min-content, 36rem);
+$expanded-order-grid-gap: 0 $table-cell-padding-x * 2;
+
+.expanded-order {
+    &__row {
+        display: grid;
+        grid-template-columns: $expanded-order-columns-template;
+        grid-gap: $expanded-order-grid-gap;
+        padding: $table-cell-padding-x;
+
+        &:not(:last-of-type) {
+            border-bottom: 0.1rem solid $border-color;
+        }
+
+        &--main {
+            grid-template-rows: min-content 1fr;
+            align-items: start;
+            justify-content: start;
+        }
+
+        &--inset {
+            & > :first-child {
+                grid-column: 2;
+            }
+        }
+
+        &--delivery {
+            grid-template-rows: min-content min-content;
+
+            .order__schedule {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .order__delivery {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .order__actions {
+                grid-column: 3;
+                grid-row: 1 / -1;
+            }
+        }
+    }
+
+    .order {
+        &__product-img {
+            grid-column: 1;
+            grid-row: 1 / -1;
+
+            width: 16rem;
+            height: 16rem;
+        }
+
+        &__product-title {
+            grid-column: 2;
+            grid-row: 1;
+
+            font-size: 2.6rem;
+            line-height: 1.2;
+            margin-bottom: $table-cell-padding-x;
+        }
+
+        &__product-extra {
+            grid-column: 2;
+            grid-row: -1 / -2;
+        }
+
+        &__price {
+            grid-column: -1 / -2;
+            grid-row: 1 / -1;
+
+            font-size: 2.2rem;
+        }
+
+        &__product-supplier {
+            margin-top: $spacing-scale-8;
+        }
+
+        &__additional {
+            &-list {
+                grid-column: 1 / -1;
+                margin-top: $table-cell-padding-x;
+            }
+
+            &-item {
+                display: grid;
+                grid-template-columns: $expanded-order-columns-template;
+                grid-gap: $expanded-order-grid-gap;
+                align-items: center;
+
+                &:not(:last-child) {
+                    margin-bottom: $table-cell-padding-x;
+                }
+            }
+
+            &-img,
+            &-header {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            &-img {
+                width: 7rem;
+                height: 7rem;
+            }
+
+            &-header {
+                margin-left: 8.6rem;
+            }
+
+            &-title {
+                font-size: inherit;
+            }
+
+            &-desc {
+                font-size: $font-size-medium;
+            }
+
+            &-sum {
+                grid-column: 3 / -1;
+                grid-row: 1;
+
+                justify-self: start;
+            }
+        }
+
+        &__schedule {
+            margin-bottom: $table-cell-padding-x;
+
+            &-note {
+                padding: $spacing-scale-6 0;
+            }
+
+            &-tbar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20rem, max-content));
+                grid-gap: $spacing-scale-4;
+                justify-items: start;
+            }
+
+            &-btn {
+                &--stretch {
+                    justify-self: stretch;
+                }
+            }
+        }
+
+        &__summary {
+            font-size: 2.6rem;
+        }
+
+        &__actions {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            & > *:not(:last-child) {
+                margin-bottom: $spacing-scale-4;
+            }
+        }
+    }
+
+    .MuiButton {
+        &-text {
+            font-weight: $font-weight-strong;
+            margin-left: -$btn-medium-padding-x;
+        }
+    }
+
+    @include media-breakpoint-down('lg') {
+        &__row {
+            grid-template-columns: 1fr 1fr;
+
+            &--main {
+                grid-template-columns: auto 1fr 1fr;
+                grid-row-gap: $table-cell-padding-x;
+            }
+
+            &--inset {
+                & > :first-child {
+                    grid-column: 1;
+                }
+            }
+
+            &--delivery {
+                padding: 0;
+                grid-auto-flow: row;
+
+                & > * {
+                    padding: $table-cell-padding-x;
+
+                    &:not(:last-child) {
+                        border-bottom: 0.1rem solid $border-color;
+                    }
+                }
+
+                .order__schedule {
+                    grid-column: 1 / -1;
+                    grid-row: 1;
+                }
+
+                .order__delivery {
+                    grid-column: 1 / -1;
+                    grid-row: 2;
+                }
+
+                .order__actions {
+                    grid-column: 1 / -1;
+                    grid-row: 3;
+                }
+            }
+        }
+
+        .order {
+            &__product-img {
+                width: 8rem;
+                height: 8rem;
+                grid-row: 1;
+            }
+
+            &__product-title,
+            &__price {
+                align-self: center;
+            }
+
+            &__price {
+                justify-self: right;
+                grid-row: 1;
+            }
+
+            &__product-details {
+                grid-column: 1 / -1;
+            }
+
+            &__summary {
+                &--total {
+                    justify-self: right;
+                }
+            }
+
+            &__additional {
+                &-list {
+                    margin: 0;
+                }
+
+                &-img,
+                &-header {
+                    grid-column: 1 / span 2;
+                    grid-row: 1;
+                }
+
+                &-sum {
+                    justify-self: end;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

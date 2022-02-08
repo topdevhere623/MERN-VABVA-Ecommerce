@@ -1,0 +1,58 @@
+@each $spacer-key, $spacer in $spacing-scale {
+    .u-margin-#{$spacer-key} {
+        margin: $spacer;
+    }
+    .u-margin-x-#{$spacer-key} {
+        margin: 0 $spacer;
+    }
+    .u-margin-y-#{$spacer-key} {
+        margin: $spacer 0;
+    }
+    .u-margin-l-#{$spacer-key} {
+        margin-left: $spacer;
+    }
+    .u-margin-r-#{$spacer-key} {
+        margin-right: $spacer;
+    }
+    .u-margin-t-#{$spacer-key} {
+        margin-top: $spacer;
+    }
+    .u-margin-b-#{$spacer-key} {
+        margin-bottom: $spacer;
+    }
+    .u-padding-#{$spacer-key} {
+        padding: $spacer;
+    }
+    .u-padding-x-#{$spacer-key} {
+        padding: 0 $spacer;
+    }
+    .u-padding-y-#{$spacer-key} {
+        padding: $spacer 0;
+    }
+    .u-padding-t-#{$spacer-key} {
+        padding-top: $spacer;
+    }
+    .u-padding-b-#{$spacer-key} {
+        padding-bottom: $spacer;
+    }
+    .u-padding-l-#{$spacer-key} {
+        padding-left: $spacer;
+    }
+    .u-padding-r-#{$spacer-key} {
+        padding-right: $spacer;
+    }
+}
+
+.u-width-full {
+    width: 100%;
+}
+
+.u-margin-auto {
+    margin: 0 auto;
+}
+.u-margin-l-auto {
+    margin-left: auto;
+}
+.u-margin-r-auto {
+    margin-right: auto;
+}

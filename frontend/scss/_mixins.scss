@@ -1,0 +1,93 @@
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin truncation {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin disable-tap-highlight-color {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin disable-focus-outline {
+    &,
+    & * {
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+/** 
+    Sources: 
+     - https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete
+     - https://stackoverflow.com/questions/55228377/remove-new-firefox-autofill-color
+*/
+@mixin input-autofill($bg-color, $font-family, $font-size, $font-weight) {
+    &:-webkit-autofill {
+        filter: none;
+        box-shadow: inset 0 0 0 100rem $bg-color;
+
+        &::first-line {
+            font-family: $font-family;
+            font-size: $font-size;
+            font-weight: $font-weight;
+        }
+    }
+}
+
+// Breakpoints
+@mixin media-breakpoint-up($key, $offset: 0) {
+    $value: map-get($breakpoints, $key);
+
+    @if $value != null {
+        @if $value != 0 {
+            @if $offset != 0 {
+                $value: $value + $offset / 16;
+            }
+
+            @media only screen and (min-width: $value) {
+                @content;
+            }
+        } @else {
+            @content;
+        }
+    }
+}
+
+@mixin media-breakpoint-down($key) {
+    $value: map-get($breakpoints, $key);
+
+    @if $value != null {
+        @media only screen and (max-width: $value) {
+            @content;
+        }
+    }
+}
+
+@mixin media-hover {
+    @media (hover: hover) and (pointer: fine) {
+        @content;
+    }
+}
+
+@mixin media-not-hover {
+    @media (hover: none) {
+        @content;
+    }
+}

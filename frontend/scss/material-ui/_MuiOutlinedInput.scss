@@ -1,0 +1,118 @@
+@use "sass:math";
+
+.MuiOutlinedInput {
+    $this: &;
+
+    &-root {
+        background-color: $input-base-bg-color;
+        align-items: center;
+        padding: $input-base-padding-y $input-base-padding-x $input-base-padding-y;
+        border-radius: $input-base-border-radius;
+        min-height: $input-base-min-height;
+
+        &:hover:not(.Mui-disabled):not(.Mui-focused):not(.Mui-error) {
+            #{$this}-notchedOutline {
+                border-color: $input-hover-border-color;
+            }
+        }
+
+        &.Mui-disabled {
+            #{$this}-notchedOutline {
+                border-color: $input-disabled-color;
+            }
+        }
+
+        &.Mui-error {
+            #{$this}-notchedOutline {
+                border-color: $input-outlined-error-border-color;
+            }
+        }
+
+        &.MuiInputBase-colorPrimary.Mui-focused {
+            #{$this}-notchedOutline {
+                border-color: $input-color-primary;
+                transition: none;
+            }
+        }
+
+        &.MuiInputBase-colorSecondary.Mui-focused {
+            #{$this}-notchedOutline {
+                border-color: $input-color-secondary;
+            }
+        }
+    }
+
+    &-notchedOutline {
+        border-color: $input-border-color;
+        transition: border-color 0.15s linear;
+    }
+
+    &-input {
+        padding: 0;
+        height: auto;
+    }
+}
+
+.MuiInputLabel {
+    $this: &;
+
+    &-outlined {
+        $_shrink-line-height: math.div(
+            math.floor($input-base-line-height * $input-standard-label-transform-scale * 1.25 * 10),
+            10
+        );
+        $_shrink-transform-offset-y: math.div($_shrink-line-height, 2);
+        $_transform-offset-y: math.div($input-outlined-min-height, 2) -
+            math.div($input-base-font-size * $input-base-line-height, 2);
+
+        transform: translate3d($input-base-padding-x, $_transform-offset-y, 0);
+
+        &#{$this}-shrink,
+        &.Mui-focused {
+            line-height: 1.25;
+            font-weight: $input-outlined-label-shrink-font-weight;
+            transform: translate3d($input-base-padding-x, -#{$_shrink-transform-offset-y}rem, 0)
+                scale3d($input-standard-label-transform-scale, $input-standard-label-transform-scale, 1);
+        }
+
+        & + .MuiOutlinedInput {
+            $this: '.MuiOutlinedInput';
+
+            &-root {
+                align-items: center;
+                min-height: $input-outlined-min-height;
+
+                #{$this}-notchedOutline {
+                    $_top-position: math.div($_shrink-line-height, -2) + 0.1rem;
+
+                    top: $_top-position;
+                    padding: 0;
+                    padding-left: $input-base-padding-x - $input-outlined-legend-spacing;
+                    padding-right: $input-base-padding-x - $input-outlined-legend-spacing;
+
+                    legend {
+                        display: inline-block;
+                        font-size: $input-base-font-size * $input-standard-label-transform-scale;
+
+                        padding: 0;
+                        height: 1.25rem;
+
+                        span {
+                            display: inline-block;
+                            font-size: inherit;
+                            padding: 0 $input-outlined-legend-spacing;
+
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        & + .MuiInputBase {
+            &-multiline {
+                padding-top: $_transform-offset-y;
+            }
+        }
+    }
+}

@@ -1,0 +1,93 @@
+.MuiCustomAutocomplete {
+    $this: &;
+
+    &-fullWidth {
+        width: 100%;
+    }
+
+    &-popper {
+        position: absolute;
+    }
+
+    &-paper {
+        margin: 0.3rem 0;
+        min-width: $autocomplete-list-min-width;
+        transform-origin: 0 0 0;
+        overflow: hidden;
+        box-shadow: $menu-paper-box-shadow;
+    }
+
+    &-simplebar {
+        max-height: $autocomplete-list-max-height;
+
+        @include media-breakpoint-down('sm') {
+            max-height: 50vh;
+        }
+    }
+
+    &-list {
+        overflow: hidden;
+    }
+
+    &-listItem {
+        @include disable-tap-highlight-color;
+
+        &[aria-selected='true'],
+        &.Mui-focused {
+            background-color: $list-item-selected-bg-color;
+
+            &:hover {
+                background-color: $list-item-selected-hover-bg-color;
+            }
+        }
+
+        &:hover {
+            background-color: rgba($btn-color, $btn-outlined-hover-opacity);
+        }
+
+        &.Mui-focusVisible {
+            background-color: $list-item-focus-visible-bg-color;
+        }
+    }
+
+    &-listGroup {
+        color: $autocomplete-list-group-color;
+    }
+
+    &-chip {
+        border-radius: $autocomplete-chip-border-radius;
+        margin: $autocomplete-chip-spacing $autocomplete-chip-spacing 0 0;
+        max-width: 100%;
+
+        .MuiChip-label {
+            @include truncation;
+        }
+    }
+
+    & &InputContainer {
+        flex: 1;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
+
+        &-filled {
+            input,
+            .MuiInputBase-input:not([role='button']) {
+                display: block;
+                flex: 1 1 $autocomplete-input-min-width;
+                min-width: 0;
+                min-height: $chip-medium-min-height;
+                padding: $autocomplete-chip-spacing $autocomplete-chip-spacing 0;
+            }
+        }
+    }
+
+    .MuiCustomOriginalInput {
+        #{$this}InputContainer-filled {
+            margin-top: -$autocomplete-chip-spacing;
+            padding: $input-base-padding-y 0;
+        }
+    }
+}

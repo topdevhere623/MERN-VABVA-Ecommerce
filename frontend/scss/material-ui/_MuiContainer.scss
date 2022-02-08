@@ -1,0 +1,30 @@
+.MuiContainer {
+    &-root {
+        padding-left: $container-gutters;
+        padding-right: $container-gutters;
+    }
+
+    &-maxWidthXl {
+        @include media-breakpoint-up('xl') {
+            max-width: map-get($container-max-widths, 'xl');
+        }
+    }
+
+    &-maxWidthLG {
+        @include media-breakpoint-up('lg') {
+            max-width: map-get($container-max-widths, 'lg');
+        }
+    }
+
+    &-maxWidthMD {
+        @include media-breakpoint-up('md') {
+            max-width: map-get($container-max-widths, 'md');
+        }
+    }
+
+    &-maxWidthSM {
+        @include media-breakpoint-up('sm') {
+            max-width: map-get($container-max-widths, 'sm');
+        }
+    }
+}

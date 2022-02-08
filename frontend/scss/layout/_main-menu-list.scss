@@ -1,0 +1,61 @@
+.main-menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 26rem));
+    grid-gap: $spacing-scale-12;
+    padding: 0;
+    margin: $spacing-scale-12 0;
+
+    &__btn {
+        color: $body-color;
+        background-color: $white;
+        min-height: 10rem;
+        border-radius: $border-radius-lg;
+        box-shadow: 0 0 0 0.1rem $input-border-color;
+        transition: background-color 0.15s;
+
+        &.Mui-selected {
+            background-color: $color-primary;
+            color: $white;
+            box-shadow: 0 0 0 0.1rem $color-primary;
+
+            &:hover,
+            &.Mui-focusVisible {
+                background-color: $color-primary;
+            }
+
+            .MuiListItemText {
+                &-secondary {
+                    color: inherit;
+                }
+            }
+        }
+
+        .MuiListItemIcon {
+            &-root {
+                font-size: 5rem;
+                color: inherit;
+                margin-right: $spacing-scale-8;
+            }
+        }
+
+        .MuiListItemText {
+            &-root {
+                color: inherit;
+            }
+
+            &-primary {
+                color: inherit;
+                font-size: $font-size-large;
+                font-weight: $font-weight-strong;
+                margin-bottom: $spacing-scale-4;
+            }
+
+            &-secondary {
+                font-size: $font-size-small;
+                color: $color-text-note;
+                line-height: 1.4;
+                letter-spacing: 0.4px;
+            }
+        }
+    }
+}

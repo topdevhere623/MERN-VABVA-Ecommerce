@@ -1,0 +1,15 @@
+.page {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+
+    &__main {
+        flex: 1;
+        margin-top: $spacing-scale-6;
+        margin-bottom: 8.4rem;
+
+        @include media-breakpoint-down('sm') {
+            margin: 4rem 0;
+        }
+    }
+}

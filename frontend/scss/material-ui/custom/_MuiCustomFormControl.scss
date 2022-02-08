@@ -1,0 +1,39 @@
+@use "sass:math";
+
+.MuiCustomFormControl {
+    &-labelAlignTop {
+        display: flex;
+        flex-flow: column;
+
+        .MuiFormLabel {
+            &-root {
+                margin: $form-label-align-top-margin;
+            }
+        }
+    }
+
+    &-labelAlignLeft {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-areas: 'label input';
+        align-items: center;
+        justify-items: stretch;
+
+        & > * {
+            grid-area: input;
+        }
+
+        .MuiFormLabel {
+            &-root {
+                grid-area: label;
+                margin-right: $input-base-padding-x;
+                width: $form-label-max-width;
+            }
+
+            &-asterisk {
+                order: -1;
+                margin-right: $spacing-scale-1;
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+.MuiToggleButtonGroup {
+    &-root {
+        border-radius: 0;
+
+        .MuiToggleButtonGroup-grouped {
+            &:not(:first-of-type) {
+                border: 0;
+            }
+        }
+    }
+}
+
+.MuiToggleButton {
+    &-root {
+        @extend .MuiButton-root;
+
+        color: inherit;
+        border: 0;
+        box-shadow: inset 0 0 0 0.1rem $btn-bg-color;
+
+        &:hover {
+            background-color: rgba($btn-color, $btn-outlined-hover-opacity);
+        }
+
+        &.Mui-selected {
+            position: relative;
+            color: $body-color;
+            background-color: rgba($body-color, $btn-outlined-hover-opacity);
+            box-shadow: $toggle-btn-selected-box-shadow;
+            z-index: 1;
+
+            .MuiIcon,
+            .MuiSvgIcon {
+                &-root {
+                    color: inherit;
+                }
+            }
+        }
+
+        .MuiIcon,
+        .MuiSvgIcon {
+            &-root {
+                color: $icon-color;
+            }
+        }
+    }
+
+    &-sizeLarge {
+        @extend .MuiButton-sizeLarge;
+
+        .MuiIcon-fontSizeInherit {
+            font-size: $icon-large-font-size;
+        }
+    }
+
+    &-sizeMedium {
+        @extend .MuiButton-sizeMedium;
+
+        .MuiIcon-fontSizeInherit {
+            font-size: $icon-medium-font-size;
+        }
+    }
+
+    &-sizeSmall {
+        @extend .MuiButton-sizeSmall;
+
+        .MuiIcon-fontSizeInherit {
+            font-size: $icon-small-font-size;
+        }
+    }
+
+    &-primary {
+        &.Mui-selected {
+            color: $color-primary;
+            background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+            box-shadow: $toggle-btn-primary-selected-box-shadow;
+
+            &:hover {
+                background-color: rgba($color-primary-dark, $btn-outlined-hover-opacity);
+            }
+        }
+    }
+
+    &-secondary {
+        &.Mui-selected {
+            color: $color-secondary;
+            background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+            box-shadow: $toggle-btn-secondary-selected-box-shadow;
+
+            &:hover {
+                background-color: rgba($color-secondary-dark, $btn-outlined-hover-opacity);
+            }
+        }
+    }
+}

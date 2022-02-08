@@ -1,0 +1,101 @@
+.login-security {
+    &__title {
+        font-family: "Poppins";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: left;
+        width: 236px;
+        height: 48px;
+        left: 216px;
+        top: 640px;
+        margin-bottom: 10px;
+    }
+
+    &__sub1title1 {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        width: 370px;
+        height: 36px;
+        top: 702px;
+    }
+
+    &__sub1title2 {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        width: 370px;
+        height: 36px;
+        top: 702px;
+        margin-left: 194px;
+    }
+
+    &__sub2title {
+        margin-top: 71px;;
+    }
+
+    &__underline {
+        border: 1px solid #CBCBCB;
+    }
+
+    &__inputrow1 {
+        margin-top: 31px;
+    }
+
+    &__inputrow2 {
+        margin-top: 43px;
+    }
+
+    &__inputFirstname {
+        height: 50px;
+        width: 370px;
+        left: 0px;
+        top: 11px;
+        border-radius: 4px;
+    }
+    
+    &__inputLastname {
+        height: 50px;
+        width: 370px;
+        left: 0px;
+        top: 11px;
+        border-radius: 4px;
+    }
+
+    &__inputNumber {
+        height: 50px;
+        width: 370px;
+        left: 0px;
+        top: 11px;
+        border-radius: 4px;
+        margin-left: 130px;
+    }
+
+    &__inputEmail {
+        height: 50px;
+        width: 370px;
+        left: 0px;
+        top: 11px;
+        border-radius: 4px;
+        margin-left: 130px;
+    }
+
+    &__countrySelect {
+        height: 50px;
+        width: 370px;
+        left: 0px;
+        top: 11px;
+        border-radius: 4px;
+        margin-left: 130px;
+    }
+
+    
+}
+

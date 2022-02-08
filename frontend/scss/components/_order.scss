@@ -1,0 +1,41 @@
+.order {
+    &__product-img,
+    &__additional-img {
+        position: relative;
+        background-color: $body-bg-color;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+    }
+
+    &__product-title {
+        font-weight: $font-weight-strong;
+    }
+
+    &__price {
+        font-weight: $font-weight-strong;
+    }
+
+    &__summary {
+        font-weight: $font-weight-strong;
+    }
+
+    &__additional {
+        &-img {
+            border-radius: $border-radius-sm;
+        }
+
+        &-title {
+            font-weight: $font-weight-strong;
+        }
+
+        &-sum {
+            font-weight: $font-weight-strong;
+        }
+
+        &-qty {
+            color: $color-text-note;
+            // font-weight: $font-weight;
+            font-size: $font-size-medium;
+        }
+    }
+}

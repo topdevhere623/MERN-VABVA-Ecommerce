@@ -1,0 +1,21 @@
+.MuiFormHelperText {
+    &-root {
+        font-family: inherit;
+        font-size: $form-helper-text-font-size;
+        font-weight: $form-helper-text-font-weight;
+        line-height: $form-helper-text-line-height;
+        letter-spacing: $form-helper-text-letter-spacing;
+        color: $form-helper-text-color;
+        margin: $form-helper-text-margin;
+
+        &.Mui-disabled {
+            color: $form-helper-text-color;
+            opacity: $input-disabled-opacity;
+        }
+
+        &.Mui-error {
+            color: $color-error;
+            font-weight: $form-helper-text-error-font-weight;
+        }
+    }
+}

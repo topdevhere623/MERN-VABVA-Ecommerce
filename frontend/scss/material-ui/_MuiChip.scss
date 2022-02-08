@@ -1,0 +1,174 @@
+@use "sass:math";
+
+// Mixins
+@mixin chip-color($parent-selector, $background-color, $color) {
+    &#{$parent-selector}-filled {
+        background-color: $background-color;
+        color: $color;
+
+        &#{$parent-selector}-clickable {
+            &:hover,
+            &.Mui-focusVisible {
+                background-color: rgba($background-color, $btn-hover-opacity);
+            }
+        }
+    }
+
+    &#{$parent-selector}-outlined {
+        box-shadow: 0 0 0 $chip-outlined-border-width $background-color;
+        color: $background-color;
+
+        &#{$parent-selector}-clickable {
+            &:hover,
+            &.Mui-focusVisible {
+                background-color: rgba($background-color, $chip-outlined-hover-opacity);
+            }
+        }
+    }
+
+    #{$parent-selector}-deleteIcon {
+        &:hover {
+            color: darken($background-color, 15%);
+        }
+    }
+}
+
+@mixin chip-dimmed-color($color) {
+    color: darken($color, 10%);
+    background-color: rgba($color, 0.12);
+}
+
+// Selectors
+.MuiChip {
+    $this: &;
+
+    &-root {
+        color: inherit;
+        font-size: $chip-medium-font-size;
+        height: auto;
+        transition: background-color 0.15s;
+
+        #{$this}-icon {
+            font-size: $chip-icon-font-size;
+            margin-left: $chip-label-padding-x - $spacing-scale-1;
+        }
+
+        #{$this}-deleteIcon {
+            font-size: $chip-delete-icon-font-size;
+            color: $icon-color;
+            margin-right: $chip-label-padding-x - $spacing-scale-2;
+            transition: color 0.15s;
+
+            &:hover {
+                color: currentColor;
+            }
+        }
+    }
+
+    &-sizeMedium {
+        min-height: $chip-medium-min-height;
+        border-radius: $chip-medium-border-radius;
+    }
+
+    &-sizeSmall {
+        min-height: $chip-small-min-height;
+        border-radius: $chip-small-border-radius;
+    }
+
+    &-filled {
+        background-color: $chip-filled-bg-color;
+        color: $chip-filled-color;
+
+        &#{$this}-clickable {
+            &:hover,
+            &.Mui-focusVisible {
+                background-color: darken($chip-filled-bg-color, 5%);
+            }
+        }
+
+        &:active {
+            box-shadow: none;
+        }
+    }
+
+    &-outlined {
+        border: 0;
+        box-shadow: 0 0 0 $chip-outlined-border-width $chip-outlined-border-color;
+
+        &:hover,
+        &.Mui-focusVisible {
+            background-color: rgba($chip-filled-color, $chip-outlined-hover-opacity);
+        }
+
+        &#{$this}-clickable {
+            &:hover,
+            &.Mui-focusVisible {
+                background-color: rgba($chip-filled-color, $chip-outlined-hover-opacity);
+            }
+        }
+
+        &:active {
+            box-shadow: 0 0 0 $chip-outlined-border-width $chip-outlined-border-color;
+        }
+    }
+
+    &-colorPrimary,
+    &-colorSecondary {
+        #{$this}-icon,
+        #{$this}-deleteIcon {
+            color: inherit;
+        }
+    }
+
+    &-colorPrimary {
+        @include chip-color($this, $color-primary, $color-primary-text);
+    }
+
+    &-colorSecondary {
+        @include chip-color($this, $color-secondary, $color-secondary-text);
+    }
+
+    &-label {
+        padding: 0 $chip-label-padding-x;
+        line-height: $chip-label-line-height;
+    }
+
+    &-labelMedium {
+        font-size: $chip-medium-font-size;
+    }
+
+    &-labelSmall {
+        font-size: $chip-small-font-size;
+    }
+
+    // Custom variance
+    &-dimmed {
+        font-weight: $chip-dimmed-font-weight;
+        letter-spacing: $chip-dimmed-letter-spacing;
+        border-radius: $chip-dimmed-border-radius;
+
+        &#{$this}-colorPrimary {
+            @include chip-dimmed-color($color-primary);
+        }
+
+        &#{$this}-colorSecondary {
+            @include chip-dimmed-color($color-secondary);
+        }
+
+        &#{$this}-colorWarning {
+            @include chip-dimmed-color($color-warning);
+        }
+
+        &#{$this}-colorSuccess {
+            @include chip-dimmed-color($color-success);
+        }
+
+        &#{$this}-colorInfo {
+            @include chip-dimmed-color($color-info);
+        }
+
+        &#{$this}-colorError {
+            @include chip-dimmed-color($color-error);
+        }
+    }
+}

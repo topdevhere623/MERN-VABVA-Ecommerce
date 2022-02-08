@@ -1,0 +1,44 @@
+.MuiCustomColorList {
+    display: grid;
+    grid-template-columns: repeat(6, $icon-medium-font-size);
+    grid-gap: $spacing-scale-5;
+    align-items: center;
+    justify-items: center;
+    padding: $list-padding-x;
+
+    &Item {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        width: $icon-medium-font-size;
+        height: $icon-medium-font-size;
+        min-height: auto;
+        padding: 0;
+        margin: 0;
+        border-radius: $border-radius-sm;
+        overflow: hidden;
+        transition: all 0.15s ease;
+
+        &:hover,
+        &.Mui-focusVisible {
+            box-shadow: 0 0 0rem 0.2rem $white, 0 0 0rem 0.4rem rgba($black, 0.2);
+        }
+
+        &.Mui-selected {
+            border-radius: 50%;
+            width: $icon-medium-font-size - 0.2rem;
+            height: $icon-medium-font-size - 0.2rem;
+            box-shadow: 0 0 0rem 0.4rem $white, 0 0 0rem 0.6rem rgba($black, 0.2);
+
+            &:hover,
+            &.Mui-focusVisible {
+                box-shadow: 0 0 0rem 0.4rem $white, 0 0 0rem 0.6rem rgba($black, 0.4);
+            }
+        }
+
+        &-color {
+            display: block;
+            flex: 1;
+        }
+    }
+}

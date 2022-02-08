@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+node_modules/sharp/vendor/8.10.0/lib/libvips.42.dylib
+
+# yarn error logs
+yarn-error.log
+
+# Next.js
+.next
+.env.local
+tsconfig.tsbuildinfo
+
+# Storybook
+storybook-static
+
+# Environment varibales
+.env*
+!.env*.example
+
+# Code coverage
+coverage
+node_modules/sharp/vendor/8.10.0/lib/libvips.42.dylib

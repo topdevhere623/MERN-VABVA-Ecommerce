@@ -1,0 +1,26 @@
+.expanded-table {
+    $this: &;
+
+    .MuiTableRow-expanded {
+        &,
+        &.MuiTableRow-root:hover {
+            .MuiTableCell-root {
+                background-color: $color-primary-light;
+                font-weight: $font-weight-strong;
+            }
+        }
+    }
+
+    .MuiTableRow-body {
+        #{$this}__expanded-content {
+            background-color: $color-primary-lighten;
+            box-shadow: inset 0 0px 4px 0 rgb($black, 0.14);
+            border-top: 4px solid $border-color;
+
+            &:first-of-type {
+                border-top: 0;
+                box-shadow: 0 1px 1px 0 rgb($black, 0.1), inset 0 2px 4px 0 rgb($black, 0.14);
+            }
+        }
+    }
+}

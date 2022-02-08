@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+    overflow-anchor: none;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+    height: 100vh;
+}
+
+html {
+    font-size: 62.5%;
+
+    @include media-breakpoint-down('sm') {
+        font-size: 56.25%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    color: $body-color;
+    background-color: $body-bg-color;
+}
+
+svg {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+#__next {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100%;
+}

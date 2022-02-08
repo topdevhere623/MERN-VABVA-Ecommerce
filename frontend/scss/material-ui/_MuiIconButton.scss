@@ -1,0 +1,185 @@
+@use "sass:math";
+
+.MuiIconButton {
+    $this: &;
+
+    &-root {
+        $selector: &;
+
+        color: $icon-color;
+        border-radius: $icon-btn-border-radius;
+        transition: $btn-transition;
+
+        &:hover {
+            background-color: rgba($icon-color, $btn-outlined-hover-opacity);
+        }
+
+        &.Mui-disabled {
+            @extend #{$selector};
+
+            opacity: $btn-disabled-opacity;
+        }
+    }
+
+    &-focusVisible.Mui-focusVisible {
+        background-color: rgba($icon-color, $btn-outlined-hover-opacity);
+    }
+
+    &-sizeLarge {
+        font-size: $icon-large-font-size;
+        padding: $icon-large-padding;
+
+        &#{$this}-edgeStart {
+            margin-left: $icon-large-padding * -1;
+        }
+
+        &#{$this}-edgeEnd {
+            margin-right: $icon-large-padding * -1;
+        }
+    }
+
+    &-sizeMedium {
+        font-size: $icon-medium-font-size;
+        padding: $icon-medium-padding;
+
+        &#{$this}-edgeStart {
+            margin-left: $icon-medium-padding * -1;
+        }
+
+        &#{$this}-edgeEnd {
+            margin-right: $icon-medium-padding * -1;
+        }
+    }
+
+    &-sizeSmall {
+        font-size: $icon-small-font-size;
+        padding: $icon-small-padding;
+
+        &#{$this}-edgeStart {
+            margin-left: $icon-small-padding * -1;
+        }
+
+        &#{$this}-edgeEnd {
+            margin-right: $icon-small-padding * -1;
+        }
+    }
+
+    &-colorPrimary {
+        $selector: &;
+
+        color: $color-primary;
+
+        &:hover,
+        &.Mui-focusVisible {
+            background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+        }
+
+        &.Mui-disabled {
+            @extend #{$selector};
+        }
+    }
+
+    &-colorSecondary {
+        $selector: &;
+
+        color: $color-secondary;
+
+        &:hover,
+        &.Mui-focusVisible {
+            background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+        }
+
+        &.Mui-disabled {
+            @extend #{$selector};
+        }
+    }
+
+    // Custom classes
+
+    &-dense {
+        $selector: &;
+
+        position: relative;
+        padding: 0;
+
+        &::after {
+            position: absolute;
+            content: '';
+            top: $icon-medium-padding * -1;
+            right: $icon-medium-padding * -1;
+            bottom: $icon-medium-padding * -1;
+            left: $icon-medium-padding * -1;
+            pointer-events: none;
+        }
+
+        &:hover,
+        &.Mui-focusVisible {
+            background-color: transparent;
+
+            &::after {
+                @extend #{$this}-root;
+            }
+        }
+
+        &#{$this}-focusVisible.Mui-focusVisible {
+            &::after {
+                @extend #{$this}-focusVisible;
+            }
+        }
+
+        &#{$this}-colorPrimary {
+            &:hover,
+            &.Mui-focusVisible {
+                &::after {
+                    background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+                }
+            }
+        }
+
+        &#{$this}-colorSecondary {
+            &:hover,
+            &.Mui-focusVisible {
+                &::after {
+                    background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+                }
+            }
+        }
+
+        &#{$this}-sizeLarge {
+            &::after {
+                top: $icon-large-padding * -1;
+                right: $icon-large-padding * -1;
+                bottom: $icon-large-padding * -1;
+                left: $icon-large-padding * -1;
+            }
+        }
+
+        &#{$this}-sizeMedium {
+            &::after {
+                top: $icon-medium-padding * -1;
+                right: $icon-medium-padding * -1;
+                bottom: $icon-medium-padding * -1;
+                left: $icon-medium-padding * -1;
+            }
+        }
+
+        &#{$this}-sizeSmall {
+            &::after {
+                top: $icon-small-padding * -1;
+                right: $icon-small-padding * -1;
+                bottom: $icon-small-padding * -1;
+                left: $icon-small-padding * -1;
+            }
+        }
+    }
+
+    &-circular {
+        &:hover,
+        &.Mui-focusVisible {
+            &::after {
+                @extend #{$this}-root;
+                border-radius: 50%;
+            }
+        }
+    }
+}

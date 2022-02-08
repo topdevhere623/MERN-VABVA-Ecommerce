@@ -1,0 +1,49 @@
+.stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(2rem, auto));
+    grid-gap: $spacing-scale-6;
+    align-items: center;
+    justify-content: start;
+
+    &--direction-column {
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+        align-items: start;
+        justify-items: start;
+    }
+
+    @each $key, $spacing in $spacing-scale {
+        &--gap-#{$key} {
+            grid-gap: $spacing;
+        }
+    }
+
+    &--justify-end {
+        justify-content: end;
+    }
+
+    &--justify-stretch {
+        grid-template-columns: repeat(auto-fit, minmax(2rem, auto));
+        justify-content: stretch;
+    }
+
+    &--justify-self-stretch {
+        justify-self: stretch;
+    }
+
+    &--align-items-end {
+        align-items: end;
+    }
+
+    &--align-items-start {
+        align-items: start;
+    }
+
+    &--justify-items-start {
+        justify-items: start;
+    }
+
+    &--justify-items-stretch {
+        justify-items: stretch;
+    }
+}

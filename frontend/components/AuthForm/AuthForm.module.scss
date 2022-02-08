@@ -1,0 +1,29 @@
+@import '~/scss/variables';
+
+.auth-form {
+    width: 100%;
+    max-width: 56rem;
+    margin: 0 auto;
+
+    &__header {
+        margin-bottom: $spacing-scale-12;
+    }
+
+    &__title {
+        font-size: 3.2rem;
+        font-weight: $font-weight-strong;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: $spacing-scale-6;
+    }
+
+    a {
+        font-weight: $font-weight-strong;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,28 @@
+.MuiTooltip {
+	$this: &;
+
+	&-tooltip {
+		font-family: inherit;
+		font-size: $tooltip-font-size;
+		font-weight: $tooltip-font-weight;
+		line-height: $tooltip-line-height;
+		letter-spacing: $tooltip-letter-spacing;
+		background-color: $tooltip-bg-color;
+		color: $tooltip-color;
+		padding: $tooltip-padding;
+		margin: $tooltip-margin;
+		max-width: $tooltip-max-width;
+		box-shadow: $tooltip-box-shadow;
+		border-radius: $tooltip-border-radius;
+	}
+
+	&-popper {
+		@each $position in ("top", "bottom", "left", "right") {
+			&[data-popper-placement*="#{$position}"] {
+				#{$this}-tooltip {
+					margin: $tooltip-margin;
+				}
+			}
+		}
+	}
+}

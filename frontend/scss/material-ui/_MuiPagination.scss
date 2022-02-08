@@ -1,0 +1,36 @@
+.MuiPaginationItem {
+    &-root {
+        color: $body-color;
+        font-weight: $font-weight-strong;
+        padding: 0;
+        margin: 0 $spacing-scale-1;
+    }
+
+    &-page {
+        &:hover {
+            background-color: rgba($btn-color, $btn-outlined-hover-opacity);
+        }
+    }
+
+    &-sizeMedium {
+        font-size: $font-size-xmedium;
+        min-height: $btn-medium-min-height;
+        min-width: $btn-medium-min-height;
+    }
+
+    &-rounded {
+        border-radius: $border-radius-sm;
+    }
+
+    &-ellipsis {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 2.4rem;
+    }
+
+    &-icon {
+        font-size: $icon-large-font-size;
+        color: $icon-color;
+    }
+}

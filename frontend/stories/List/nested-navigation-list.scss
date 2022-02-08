@@ -1,0 +1,30 @@
+@use '../../scss/variables' as *;
+
+.nested-navigation-list {
+    background-color: $white;
+
+    .MuiListItemButton-root {
+        letter-spacing: 0.2px;
+        border-radius: $border-radius-lg;
+
+        &:not(:last-of-type) {
+            margin-bottom: $spacing-scale-2;
+        }
+
+        &.Mui-selected {
+            font-weight: 500;
+            color: $color-primary;
+            background-color: rgba($color-primary, 0.12);
+
+            .MuiListItemIcon-root {
+                color: inherit;
+            }
+        }
+    }
+
+    .MuiListSubheader-root {
+        color: $gray;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+    }
+}

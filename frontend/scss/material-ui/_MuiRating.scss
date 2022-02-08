@@ -1,0 +1,25 @@
+.MuiRating {
+    $this: &;
+
+    &-root {
+        color: $rating-active-color;
+
+        #{$this}-icon {
+            &Empty {
+                color: $rating-color;
+            }
+        }
+    }
+
+    &-sizeLarge {
+        font-size: $rating-large-font-size;
+    }
+
+    &-sizeMedium {
+        font-size: $rating-medium-font-size;
+    }
+
+    &-sizeSmall {
+        font-size: $rating-small-font-size;
+    }
+}

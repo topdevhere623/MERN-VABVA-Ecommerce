@@ -1,0 +1,54 @@
+.MuiSelect {
+    $this: &;
+
+    &-root {
+        position: relative;
+        padding: 0;
+        min-width: $select-min-width;
+
+        &.MuiInputBase-adornedStart {
+            padding-left: $input-base-padding-x;
+
+            .MuiInputAdornment-positionStart.MuiInputAdornment-sizeSmall + #{$this}-select {
+                padding-left: 2 * $input-base-padding-x + $spacing-scale-1;
+            }
+
+            .MuiInputAdornment-positionStart.MuiInputAdornment-sizeMedium + #{$this}-select {
+                padding-left: 2 * $input-base-padding-x + $icon-medium-font-size - $spacing-scale-1;
+            }
+        }
+
+        #{$this}-select.MuiInputBase-input {
+            padding-right: $input-base-padding-x + $input-base-adornment-font-size;
+        }
+
+        &.MuiInput-root {
+            #{$this}-select {
+                &:focus {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    &-select {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-flow: row wrap;
+        align-self: stretch;
+        align-items: center;
+        padding-left: $input-base-padding-x;
+
+        & ~ #{$this}-icon {
+            position: absolute;
+            right: $input-base-padding-x;
+            font-size: $input-base-adornment-font-size;
+            color: $input-base-adornment-color;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.MuiCustomPaperSimplebar {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    overflow: hidden;
+
+    & > [data-simplebar] {
+        flex: 1;
+    }
+}

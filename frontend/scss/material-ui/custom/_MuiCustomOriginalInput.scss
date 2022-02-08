@@ -1,0 +1,77 @@
+.MuiCustomOriginalInput {
+    &.MuiInputBase {
+        $this: '.MuiInputBase';
+
+        &-root {
+            position: relative;
+            background-color: $input-base-bg-color;
+            padding: 0 $input-base-padding-x;
+            min-height: $input-base-min-height;
+            box-shadow: $input-base-box-shadow;
+            border-radius: $input-base-border-radius;
+            transition: box-shadow 0.15s linear;
+
+            & > * {
+                z-index: 1;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: $input-base-border-radius;
+                box-shadow: $input-base-box-shadow;
+                opacity: 0;
+                z-index: 0;
+                transition: opacity 0.15s linear;
+            }
+
+            @if $input-base-disable-hover != true {
+                &:hover:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error) {
+                    box-shadow: $input-base-hover-box-shadow;
+                }
+            }
+
+            &.Mui-focused {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &.Mui-error {
+                box-shadow: $input-base-error-box-shadow;
+            }
+
+            & #{$this}-input:not([role='button']) {
+                padding: $input-base-padding-y 0;
+                height: auto;
+
+                &::placeholder {
+                    opacity: $input-base-placeholder-opacity;
+                }
+
+                @include input-autofill(
+                    $input-base-bg-color,
+                    $font-family,
+                    $input-base-font-size,
+                    $input-base-font-weight
+                );
+            }
+        }
+
+        &-colorPrimary {
+            &::before {
+                box-shadow: $input-base-primary-focused-box-shadow;
+            }
+        }
+
+        &-colorSecondary {
+            &::before {
+                box-shadow: $input-base-secondary-focused-box-shadow;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.MuiCustomInputGroup {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    & > * {
+        &:hover {
+            z-index: 1;
+        }
+    }
+
+    & > :first-child {
+        .MuiInputBase-root {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+
+            &::before {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &.Mui-focused {
+                &::before {
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    & > :not(:first-child) {
+        margin-left: 0.1rem;
+
+        .MuiInputBase-root {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            &::before {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            &.Mui-focused {
+                &::before {
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    &-outlined {
+        & > :not(:first-child) {
+            margin-left: -0.1rem;
+        }
+    }
+}

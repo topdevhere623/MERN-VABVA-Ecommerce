@@ -1,0 +1,36 @@
+.MuiCustomOriginalInputLabel {
+    &.MuiFormLabel {
+        &-root {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-start;
+            font-size: $form-label-font-size;
+            font-weight: $form-label-font-weight;
+            line-height: $form-label-line-height;
+            letter-spacing: $form-label-letter-spacing;
+            color: $form-label-color;
+            opacity: 1;
+            transition: color 0.15s ease;
+
+            &.Mui-disabled {
+                opacity: $input-disabled-opacity;
+            }
+        }
+
+        &-colorPrimary {
+            &.Mui-focused {
+                color: $color-primary;
+            }
+        }
+
+        &-colorSecondary {
+            &.Mui-focused {
+                color: $color-secondary;
+            }
+        }
+    }
+
+    &-justifyEnd {
+        justify-content: flex-end;
+    }
+}

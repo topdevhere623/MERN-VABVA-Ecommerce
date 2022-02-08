@@ -1,0 +1,44 @@
+.footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    background-color: $color-primary;
+    min-height: 11rem;
+
+    &--dense {
+        padding: $spacing-scale-12 0;
+    }
+
+    &__brand {
+        width: 16.8rem;
+        height: 4rem;
+
+        &-link {
+            display: block;
+            line-height: 0;
+        }
+    }
+
+    &__layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__social-net-list {
+        margin-left: $spacing-scale-10;
+    }
+
+    @include media-breakpoint-down('sm') {
+        padding: $spacing-scale-18 0;
+
+        &__layout {
+            flex-flow: column nowrap;
+        }
+
+        &__social-net-list {
+            margin: 0;
+            margin-top: 3rem;
+        }
+    }
+}

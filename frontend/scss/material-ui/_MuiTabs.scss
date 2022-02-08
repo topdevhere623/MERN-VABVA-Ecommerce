@@ -1,0 +1,73 @@
+.MuiTabs {
+    &-root {
+        min-height: 6rem;
+        background-color: transparent;
+        box-shadow: inset 0 -0.2rem 0 -0.1rem $border-color;
+    }
+
+    &-indicator {
+        height: 0.4rem;
+        border-radius: 0.4rem;
+        margin: 0rem 0.05rem 0 0.05rem;
+    }
+}
+
+.MuiTab {
+    &-root {
+        font-size: $font-size-large;
+        font-weight: $font-weight-strong;
+        line-height: $line-height;
+        text-transform: inherit;
+        color: #777777;
+        padding: 0 $spacing-scale-18;
+        min-height: 6rem;
+        border-radius: $btn-border-radius;
+        z-index: 1;
+        transition: background-color 0.15s;
+
+        // &:not(:last-of-type) {
+        //     margin-right: $spacing-scale-12;
+        // }
+
+        &:hover,
+        &.Mui-focusVisible {
+            background-color: rgba($btn-color, $btn-outlined-hover-opacity);
+        }
+    }
+
+    &-textColor {
+        &Primary {
+            &.Mui-selected:hover,
+            &.Mui-focusVisible.Mui-selected {
+                background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+            }
+        }
+    }
+}
+
+.MuiTabScrollButton {
+    &-root {
+        color: $icon-color;
+        background-color: transparent;
+        width: 4rem;
+        opacity: 1;
+        transition: background-color 0.15s;
+        z-index: 2;
+
+        &:hover {
+            background-color: rgba($black, 0.04);
+        }
+
+        &:first-of-type {
+            box-shadow: 0.1rem 0 0.4rem 0.1rem rgba($black, 0.12);
+        }
+
+        &:last-of-type {
+            box-shadow: -0.1rem 0 0.4rem 0.1rem rgba($black, 0.12);
+        }
+
+        .MuiSvgIcon-root {
+            font-size: $icon-large-font-size;
+        }
+    }
+}

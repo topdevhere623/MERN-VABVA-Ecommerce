@@ -1,0 +1,73 @@
+.MuiCheckbox {
+	$this: &;
+
+	&-root {
+		@extend .MuiIconButton-root;
+
+		font-size: $icon-large-font-size;
+		padding: $checkbox-padding;
+		background-color: transparent;
+		transition: $btn-transition;
+	}
+
+	&-colorPrimary {
+		&.Mui-checked {
+			color: $color-primary;
+		}
+
+		&:hover,
+		&.Mui-focusVisible {
+			background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+		}
+	}
+
+	&-colorSecondary {
+		&.Mui-checked {
+			color: $color-secondary;
+		}
+
+		&:hover,
+		&.Mui-focusVisible {
+			background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+		}
+	}
+
+	&-dense {
+		position: relative;
+
+		&::after {
+			$offset: ($checkbox-padding - .2rem) * -1;
+
+			position: absolute;
+			content: "";
+			top: $offset;
+			right: $offset;
+			bottom: $offset;
+			left: $offset;
+			border-radius: $icon-btn-border-radius;
+		}
+
+		&#{$this}-root {
+			padding: 0;
+			position: relative;
+		}
+
+		&#{$this}-colorPrimary {
+			&:hover,
+			&.Mui-focusVisible {
+				&::after {
+					background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+				}
+			}
+		}
+
+		&#{$this}-colorSecondary {
+			&:hover,
+			&.Mui-focusVisible {
+				&::after {
+					background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+				}
+			}
+		}
+	}
+}

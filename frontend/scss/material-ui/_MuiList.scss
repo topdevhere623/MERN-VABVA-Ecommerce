@@ -1,0 +1,168 @@
+@use 'sass:math';
+
+.MuiList {
+    &-padding {
+        padding: $list-padding-y 0;
+    }
+}
+
+.MuiListItem,
+.MuiListItemButton {
+    &-root {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        & + .MuiDivider-root {
+            margin-top: $spacing-scale-4;
+            margin-bottom: $spacing-scale-4;
+        }
+    }
+
+    &-padding {
+        padding-top: $list-padding-y;
+        padding-bottom: $list-padding-y;
+        min-height: $list-item-min-height;
+    }
+
+    &-dense {
+        padding-top: math.div($list-padding-y, 2);
+        padding-bottom: math.div($list-padding-y, 2);
+        min-height: auto;
+    }
+
+    &-gutters {
+        padding-left: $list-padding-x;
+        padding-right: $list-padding-x;
+    }
+}
+
+.MuiListItemButton {
+    &-root {
+        cursor: pointer;
+
+        &:hover {
+            background-color: $list-item-hover-bg-color;
+        }
+
+        @include media-not-hover {
+            &:hover {
+                background-color: $list-item-hover-bg-color;
+            }
+        }
+
+        &.Mui-selected,
+        &.Mui-selected.Mui-focusVisible {
+            background-color: $list-item-selected-bg-color;
+
+            &:hover {
+                background-color: $list-item-selected-hover-bg-color;
+            }
+        }
+
+        &.Mui-focusVisible {
+            background-color: $list-item-focus-visible-bg-color;
+        }
+    }
+}
+
+.MuiListItemText {
+    $this: &;
+
+    &-root {
+        flex: 1 1 auto;
+        margin-top: $spacing-scale-1;
+        margin-bottom: $spacing-scale-1;
+
+        & ~ & {
+            margin-left: $list-padding-x;
+        }
+    }
+
+    &-inset {
+        padding-left: $list-padding-x - $spacing-scale-1 + $list-item-icon-font-size;
+    }
+
+    &-multiline {
+        line-height: $list-item-multiline-text-line-height;
+
+        #{$this}-primary {
+            font-size: $list-item-multiline-text-primary-font-size;
+            margin-bottom: $list-item-multiline-text-primary-margin-bottom;
+        }
+
+        #{$this}-secondary {
+            font-size: $list-item-multiline-text-secondary-font-size;
+            color: $list-item-multiline-text-secondary-color;
+        }
+    }
+}
+
+.MuiListItemIcon {
+    $this: &;
+
+    &-root {
+        flex: none;
+        min-width: 0;
+        font-size: $list-item-icon-font-size;
+        color: $icon-color;
+        line-height: 0;
+
+        &:first-child {
+            margin-right: $list-padding-x - $spacing-scale-1;
+        }
+
+        &:not(:first-child) {
+            margin-left: $list-padding-x;
+        }
+    }
+}
+
+.MuiListItemAvatar {
+    &-root {
+        min-width: 0;
+        flex: none;
+
+        &:first-child {
+            margin-right: $list-padding-x - $spacing-scale-1;
+            margin-top: 0;
+        }
+
+        &:not(:first-child) {
+            margin-left: $list-padding-x;
+        }
+    }
+}
+
+.MuiListSubheader {
+    &-root {
+        display: flex;
+        align-items: center;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+        min-height: $list-item-min-height;
+    }
+
+    &-gutters {
+        padding-left: $list-padding-x;
+        padding-right: $list-padding-x;
+    }
+}
+
+// Custom classes
+
+.MuiListItemBadge {
+    flex: none;
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .MuiBadge-badge {
+        position: relative;
+        min-width: $list-item-icon-font-size;
+        height: $list-item-icon-font-size;
+        box-shadow: none;
+        transform: none;
+    }
+}

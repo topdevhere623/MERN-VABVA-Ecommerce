@@ -1,0 +1,8 @@
+.social-net-list {
+	display: flex;
+	flex-flow: row wrap;
+
+	& > :not(:first-child) {
+		margin-left: $spacing-scale-8;
+	}
+}

@@ -1,0 +1,16 @@
+@import '~/scss/mixins';
+@import '~/scss/variables';
+
+.form-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: $form-layout-gap;
+
+    &__span-row {
+        grid-column: 1 / -1;
+    }
+
+    @include media-breakpoint-down('sm') {
+        grid-template-columns: 1fr;
+    }
+}

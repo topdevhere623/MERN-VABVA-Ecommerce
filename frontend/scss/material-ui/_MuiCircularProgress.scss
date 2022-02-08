@@ -1,0 +1,15 @@
+.MuiCircularProgress {
+    &-root {
+        width: $circular-progress-size;
+        height: $circular-progress-size;
+    }
+
+    &-colorInherit {
+        color: inherit;
+    }
+
+    &-svg {
+        width: auto;
+        height: auto;
+    }
+}

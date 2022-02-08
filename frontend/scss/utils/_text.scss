@@ -1,0 +1,44 @@
+.u-text-truncate {
+    @include truncation;
+}
+.u-text-strong {
+    font-weight: $font-weight-strong;
+}
+
+.u-text-primary {
+    color: $color-primary;
+}
+
+.u-text-secondary {
+    color: $color-secondary;
+}
+
+.u-text-note {
+    color: $color-text-note;
+}
+
+.u-text-small {
+    font-size: $font-size-small;
+}
+.u-text-medium {
+    font-size: $font-size-medium;
+}
+
+.u-text-align-right {
+    text-align: right;
+}
+.u-text-align-center {
+    text-align: center;
+}
+.u-text-align-left {
+    text-align: left;
+}
+
+.u-text-highligh {
+    background: transparent;
+    font-weight: $font-weight-bold;
+}
+
+.u-text-no-wrap {
+    white-space: nowrap;
+}

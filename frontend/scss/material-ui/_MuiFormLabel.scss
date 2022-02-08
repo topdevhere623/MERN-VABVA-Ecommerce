@@ -1,0 +1,37 @@
+.MuiFormLabel {
+    $this: &;
+
+    &-root {
+        font-family: inherit;
+        font-size: $input-base-font-size;
+        font-weight: $input-base-font-weight;
+        line-height: $input-base-line-height;
+        letter-spacing: $input-base-letter-spacing;
+        color: $input-base-color;
+        opacity: $input-base-placeholder-opacity;
+
+        &.Mui-focused {
+            opacity: 1;
+        }
+
+        &.Mui-error {
+            color: $form-label-color;
+        }
+    }
+
+    &-asterisk {
+        color: $form-label-asterisk-color;
+    }
+
+    &-colorPrimary {
+        &.Mui-focused {
+            color: $color-primary;
+        }
+    }
+
+    &-colorSecondary {
+        &.Mui-focused {
+            color: $color-secondary;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@use '../../scss/variables' as *;
+@use "../../scss/vendors/popper-arrow-placement" as *;
+
+.map-popper {
+    z-index: 4000;
+
+    &.popper {
+        .popper__arrow {
+            width: 1.4rem;
+            height: 1.4rem;
+
+            &::before {
+                border: 1px solid rgba($black, 0.12);
+            }
+        }
+
+        @include popper-arrow-placement('.popper', 1.4rem);
+    }
+
+    &__close {
+        position: absolute;
+        top: $spacing-scale-5;
+        right: $spacing-scale-5;
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        max-width: 32rem;
+        padding: $spacing-scale-10;
+        border-radius: $border-radius-sm;
+        box-shadow: 0 0 0.6rem 0.1rem rgba($black, 0.16);
+    }
+}

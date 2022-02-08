@@ -1,0 +1,16 @@
+.MuiPaper {
+    &-root {
+        color: $paper-color;
+        background-color: $paper-bg-color;
+    }
+
+    &-rounded {
+        border-radius: $paper-border-radius;
+    }
+
+    @each $index, $box-shadow in $paper-elevations {
+        &-elevation#{$index} {
+            box-shadow: $box-shadow;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.MuiFormControlLabel {
+    $this: &;
+
+    &-root {
+        margin: 0;
+    }
+
+    &-labelPlacementEnd {
+        .MuiCheckbox {
+            &-root {
+                margin-right: $input-base-padding-x - $checkbox-padding;
+                margin-left: -$checkbox-padding;
+            }
+        }
+
+        .MuiSwitch {
+            &-root {
+                margin-right: $input-base-padding-x;
+            }
+        }
+
+        .MuiRating-sizeLarge + #{$this}-label {
+            font-size: $rating-large-label-font-size;
+            font-weight: $rating-large-label-font-weight;
+            margin-left: $rating-large-label-gap;
+            line-height: $rating-large-label-line-height;
+        }
+
+        .MuiRating-sizeMedium + #{$this}-label {
+            font-size: $rating-medium-label-font-size;
+            font-weight: $rating-medium-label-font-weight;
+            margin-left: $rating-medium-label-gap;
+            line-height: $rating-medium-label-line-height;
+        }
+
+        .MuiRating-sizeSmall + #{$this}-label {
+            font-size: $rating-small-label-font-size;
+            font-weight: $rating-small-label-font-weight;
+            margin-left: $rating-small-label-gap;
+            line-height: $rating-small-label-line-height;
+        }
+    }
+
+    &-labelPlacementStart {
+        .MuiCheckbox {
+            &-root {
+                margin-left: $input-base-padding-x - $checkbox-padding;
+                margin-right: -$checkbox-padding;
+            }
+        }
+
+        .MuiSwitch {
+            &-root {
+                margin-left: $input-base-padding-x;
+            }
+        }
+    }
+}

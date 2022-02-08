@@ -1,0 +1,236 @@
+.MuiTable {
+    &-striped {
+        tbody {
+            .MuiTableRow-oddRow {
+                td {
+                    background-color: $table-striped-bg-color;
+                }
+            }
+        }
+    }
+
+    &-bordered {
+        tbody {
+            tr:not(:last-of-type) {
+                td {
+                    border-bottom: 0.1rem solid $border-color;
+                }
+            }
+        }
+    }
+}
+
+.MuiTableHead {
+    &-root {
+        .MuiTableCell {
+            &-root {
+                background-color: $table-header-bg-color;
+                color: $table-header-color;
+                font-size: $table-header-font-size;
+                font-weight: $table-header-font-weight;
+                text-transform: $table-header-text-transform;
+                border-bottom: $table-header-border-bottom;
+            }
+
+            &-sizeLarge {
+                height: $table-header-cell-large-min-height;
+            }
+
+            &-sortable {
+                cursor: pointer;
+                transition: all 0.15s;
+
+                &:hover {
+                    color: $table-header-hover-text-color;
+                    background-color: $table-header-hover-bg-color;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.MuiTableRow {
+    $this: &;
+
+    &-root {
+        .MuiTableCell-root {
+            transition: background-color 0.12s;
+        }
+
+        &#{$this}-hover {
+            &:hover {
+                background-color: transparent;
+
+                .MuiTableCell-root {
+                    background-color: $table-row-hover-bg-color;
+                }
+            }
+
+            &.Mui-selected {
+                &:hover {
+                    .MuiTableCell-root {
+                        background-color: $table-row-selected-hover-bg-color;
+                    }
+                }
+            }
+        }
+
+        &.Mui-selected {
+            background-color: transparent;
+
+            .MuiTableCell-root {
+                background-color: $table-row-selected-bg-color;
+            }
+        }
+    }
+
+    // Custom selector
+
+    &-body {
+        &#{$this}-collapsed {
+            .MuiTableCell {
+                &-root {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        &:not(#{$this}-collapsed) {
+            .MuiTableCell {
+                &-root {
+                    border-bottom: 0.1rem solid $border-color;
+                }
+            }
+        }
+
+        .MuiTableCell {
+            &-root {
+                padding: 0;
+                height: 0;
+            }
+        }
+    }
+}
+
+.MuiTableCell {
+    $this: &;
+
+    &-root {
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+        padding: $table-cell-padding-y $table-cell-padding-x;
+        height: $table-cell-medium-min-height;
+        border: 0;
+
+        & #{$this}-truncatedContainer {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        & #{$this}-truncated {
+            @include truncation;
+        }
+    }
+
+    &-sizeLarge {
+        height: $table-cell-large-min-height;
+    }
+
+    &-sizeSmall {
+        height: $table-cell-small-min-height;
+
+        &#{$this}-paddingCheckbox {
+            padding: 0;
+        }
+    }
+
+    &-paddingAction {
+        &:last-of-type {
+            padding-right: $table-cell-padding-x;
+        }
+
+        &:first-of-type {
+            padding-left: $spacing-scale-3;
+        }
+
+        padding: 0;
+    }
+
+    &-paddingCheckbox {
+        &:last-of-type {
+            padding-right: $table-cell-padding-x - $checkbox-padding;
+        }
+
+        &:first-of-type {
+            padding-left: $table-cell-padding-x - $checkbox-padding;
+        }
+
+        padding: 0;
+    }
+}
+
+.MuiTableSortLabel {
+    $this: &;
+
+    &-root {
+        color: inherit;
+
+        &:hover {
+            color: inherit;
+        }
+
+        &.Mui-active {
+            color: $table-header-active-text-color;
+
+            & #{$this}-icon {
+                color: inherit;
+            }
+        }
+    }
+
+    &-icon {
+        color: inherit;
+        font-size: $table-header-icon-font-size;
+        margin: 0 $table-header-icon-margin-x;
+        transition: none;
+
+        &:hover {
+            color: inherit;
+        }
+    }
+}
+
+// Custom selectors
+
+.MuiTableExpandedContent {
+    padding: $table-cell-padding-x;
+}
+
+.MuiCustomTablePaperSimplebar {
+    .MuiTableContainer {
+        &-root {
+            overflow-x: inherit;
+        }
+    }
+
+    .simplebar-custom {
+        $simplebar: '.simplebar';
+
+        #{$simplebar}-track#{$simplebar}-vertical {
+            width: $table-simplebar-track-size;
+        }
+
+        #{$simplebar}-track#{$simplebar}-horizontal {
+            height: $table-simplebar-track-size;
+
+            #{$simplebar}-scrollbar#{$simplebar}-visible {
+                height: $table-simplebar-track-size - 2 * $simplebar-offset;
+            }
+        }
+    }
+}

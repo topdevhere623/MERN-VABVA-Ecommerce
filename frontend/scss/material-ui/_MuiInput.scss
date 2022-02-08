@@ -1,0 +1,179 @@
+@use "sass:math";
+
+.MuiInput,
+.MuiFilledInput {
+    &-root {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: $input-base-bg-color;
+        padding: $input-base-padding-y $input-base-padding-x $input-base-padding-y;
+        border-radius: $input-base-border-radius;
+        box-shadow: $input-base-box-shadow;
+        min-height: $input-base-min-height;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: $input-base-border-radius;
+            opacity: 0;
+            transition: opacity 0.15s linear;
+            z-index: 0;
+        }
+
+        &.Mui-focused {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &.Mui-error {
+            background-color: $input-base-bg-color;
+            box-shadow: $input-base-error-box-shadow;
+        }
+
+        &.MuiInputBase-colorPrimary {
+            &::before {
+                box-shadow: $input-base-primary-focused-box-shadow;
+            }
+        }
+
+        &.MuiInputBase-colorSecondary {
+            &::before {
+                box-shadow: $input-base-secondary-focused-box-shadow;
+            }
+        }
+
+        & > * {
+            z-index: 1;
+        }
+
+        .MuiInputAdornment {
+            $this: &;
+
+            &-root {
+                &:not(#{$this}-hiddenLabel) {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            &-positionEnd {
+                align-self: center;
+                margin: 0;
+            }
+        }
+    }
+
+    &-input {
+        display: block;
+        padding: 0;
+    }
+}
+
+.MuiInput {
+    &-root {
+        @if $input-base-disable-hover != true {
+            transition: box-shadow 0.15s linear;
+
+            &:hover:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error) {
+                box-shadow: $input-base-hover-box-shadow;
+            }
+        }
+    }
+}
+
+.MuiFilledInput {
+    $this: &;
+
+    &-root {
+        background-color: $input-filled-bg-color;
+        box-shadow: $input-filled-box-shadow;
+        transition: box-shadow 0.3s ease;
+
+        &:hover:not(.Mui-disabled):not(.Mui-focused):not(.Mui-error) {
+            background-color: $input-filled-bg-color;
+            box-shadow: $input-filled-hover-box-shadow;
+        }
+
+        &.Mui-focused {
+            background-color: $input-base-bg-color;
+
+            #{$this}-input {
+                @include input-autofill($input-base-bg-color, $font-family, $input-base-font-size, $input-base-font-weight);
+            }
+        }
+
+        &.Mui-disabled {
+            background-color: $input-filled-bg-color;
+        }
+
+        #{$this}-input {
+            @include input-autofill($input-filled-bg-color, $font-family, $input-base-font-size, $input-base-font-weight);
+        }
+    }
+}
+
+.MuiInputLabel {
+    $this: &;
+
+    &-root {
+        $_transform-offset-y: math.div($input-standard-min-height, 2) -
+            math.div($input-base-font-size * $input-base-line-height, 2);
+        $_offset-x: $input-base-padding-x * 2;
+
+        top: 0;
+        line-height: $input-base-line-height;
+        max-width: calc(100% - #{$_offset-x});
+        transform: translate3d($input-base-padding-x, $_transform-offset-y, 0);
+        transition: max-width 0.16s ease-out, transform 0.16s ease-out;
+        z-index: 1;
+        pointer-events: none;
+
+        &#{$this}-shrink,
+        &.Mui-focused,
+        &.MuiFormLabel-filled {
+            $_max-width-percent: (2 - $input-standard-label-transform-scale) * 100;
+            font-weight: $input-outlined-label-shrink-font-weight;
+            line-height: math.div(math.floor($input-base-line-height * $input-standard-label-transform-scale * 10), 10) +
+                0.05;
+            max-width: calc(#{$_max-width-percent}% - #{$_offset-x});
+            transform: translate3d($input-base-padding-x, $input-base-padding-y, 0)
+                scale($input-standard-label-transform-scale);
+        }
+
+        &.Mui-disabled {
+            color: $form-label-color;
+            opacity: $input-disabled-opacity;
+        }
+
+        & + .MuiInputBase {
+            &-root {
+                align-items: flex-end;
+                margin: 0;
+                min-height: $input-standard-min-height;
+            }
+
+            &-multiline {
+                padding-top: $_transform-offset-y + ($input-base-padding-y * $input-standard-label-transform-scale);
+            }
+
+            .MuiInputAdornment {
+                &-root {
+                    margin-bottom: $input-base-padding-y;
+                }
+            }
+        }
+
+        & ~ .MuiFormHelperText {
+            &-root {
+                margin-left: $input-base-padding-x;
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.MuiAvatar {
+    &-root {
+        font-family: inherit;
+        font-size: $avatar-font-size;
+        font-weight: $avatar-font-weight;
+        text-transform: $avatar-text-transform;
+        line-height: 1;
+        color: $avatar-color;
+        background-color: $avatar-bg-color;
+        width: $avatar-size;
+        height: $avatar-size;
+    }
+
+    &-rounded {
+        border-radius: $avatar-rounded-border-radius;
+    }
+
+    &-color {
+        &Primary {
+            background-color: $color-primary;
+            color: $white;
+        }
+
+        &Secondary {
+            background-color: $color-secondary;
+            color: $white;
+        }
+    }
+}

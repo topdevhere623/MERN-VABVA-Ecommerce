@@ -1,0 +1,50 @@
+.MuiMenu {
+    &-root {
+        .MuiPaper {
+            // Default elevation
+            &-elevation8 {
+                box-shadow: $menu-paper-box-shadow;
+            }
+        }
+
+        & .MuiDivider-root {
+            margin-top: $spacing-scale-4;
+            margin-bottom: $spacing-scale-4;
+        }
+    }
+}
+
+.MuiMenuItem {
+    @extend .MuiListItemButton;
+
+    &-root {
+        @extend .MuiListItemButton-root;
+        @extend .MuiListItemButton-padding;
+
+        min-height: $menu-item-min-height;
+
+        &.Mui-selected,
+        &.Mui-selected.Mui-focusVisible {
+            background-color: $list-item-selected-bg-color;
+
+            &:hover {
+                background-color: $list-item-selected-hover-bg-color;
+            }
+        }
+
+        .MuiListItemIcon-root {
+            @extend .MuiListItemIcon-root;
+        }
+
+        .MuiListItemText-root {
+            @extend .MuiListItemText-root;
+
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &-gutters {
+        @extend .MuiListItemButton-gutters;
+    }
+}

@@ -1,0 +1,188 @@
+@use 'sass:math';
+
+@mixin mui-switch-base-after($base-padding) {
+    &:after {
+        position: absolute;
+        content: '';
+        top: $base-padding;
+        bottom: $base-padding;
+        right: $base-padding;
+        left: $base-padding;
+        border-radius: 50%;
+        transition: box-shadow 0.2s ease;
+    }
+}
+
+.MuiSwitch {
+    $this: &;
+
+    &-switchBase {
+        color: $white;
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        #{$this}-thumb {
+            box-shadow: $switch-thumb-box-shadow;
+        }
+
+        & + #{$this}-track {
+            background-color: $switch-track-bg-color;
+            box-shadow: $switch-track-box-shadow;
+            opacity: 1;
+        }
+
+        &.Mui-checked {
+            & + #{$this}-track {
+                opacity: $switch-checked-track-opacity;
+            }
+
+            &.Mui-disabled {
+                & + #{$this}-track {
+                    opacity: $switch-disabled-opacity;
+                }
+            }
+        }
+
+        &.Mui-disabled {
+            & + #{$this}-track {
+                opacity: $switch-disabled-opacity;
+            }
+        }
+    }
+
+    &-sizeMedium {
+        padding: 0;
+        width: $switch-size-medium-width;
+        height: $switch-size-medium-height;
+
+        #{$this}-switchBase {
+            $switch-base-padding: math.div(
+                $switch-size-medium-height - $switch-size-medium-thumb-size,
+                2
+            );
+
+            padding: $switch-base-padding;
+
+            & + #{$this}-track {
+                border-radius: math.div($switch-size-medium-height, 2);
+            }
+
+            @include mui-switch-base-after($switch-base-padding);
+
+            &.Mui-checked {
+                $switch-base-checked-translate-x: $switch-size-medium-width -
+                    $switch-size-medium-thumb-size - ($switch-base-padding * 2);
+
+                transform: translateX($switch-base-checked-translate-x);
+            }
+        }
+
+        #{$this}-thumb {
+            width: $switch-size-medium-thumb-size;
+            height: $switch-size-medium-thumb-size;
+        }
+    }
+
+    &-sizeSmall {
+        padding: 0;
+        width: $switch-size-small-width;
+        height: $switch-size-small-height;
+
+        #{$this}-switchBase {
+            $switch-base-padding: math.div(
+                $switch-size-small-height - $switch-size-small-thumb-size,
+                2
+            );
+
+            padding: $switch-base-padding;
+
+            @include mui-switch-base-after($switch-base-padding);
+
+            & + #{$this}-track {
+                border-radius: math.div($switch-size-small-height, 2);
+            }
+
+            &.Mui-checked {
+                $switch-base-checked-translate-x: $switch-size-small-width -
+                    $switch-size-small-thumb-size - ($switch-base-padding * 2);
+
+                transform: translateX($switch-base-checked-translate-x);
+            }
+        }
+
+        #{$this}-thumb {
+            width: $switch-size-small-thumb-size;
+            height: $switch-size-small-thumb-size;
+        }
+    }
+
+    &-colorDefault {
+        &.Mui-checked {
+            color: darken($switch-track-bg-color, 30%);
+        }
+
+        &.Mui-disabled {
+            color: lighten($switch-track-bg-color, 15%);
+        }
+
+        &.Mui-focusVisible {
+            background-color: transparent;
+
+            &:after {
+                box-shadow: inset 0 0 0 0.3rem $white,
+                    inset 0 0 0 0.6rem darken($switch-track-bg-color, 30%);
+            }
+        }
+    }
+
+    &-colorPrimary {
+        &.Mui-checked {
+            color: $switch-primary-thumb-color;
+
+            &.Mui-disabled {
+                color: $switch-secondary-thumb-color;
+            }
+
+            & + #{$this}-track {
+                background-color: $color-primary;
+            }
+        }
+
+        &.Mui-focusVisible {
+            background-color: transparent;
+
+            &:after {
+                box-shadow: inset 0 0 0 0.3rem $white, inset 0 0 0 0.6rem $color-primary;
+            }
+        }
+    }
+
+    &-colorSecondary {
+        &.Mui-checked {
+            color: $switch-secondary-thumb-color;
+
+            &:hover,
+            &.Mui-focusVisible {
+                background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                color: $switch-secondary-thumb-color;
+            }
+
+            & + #{$this}-track {
+                background-color: $color-secondary;
+            }
+        }
+
+        &.Mui-focusVisible {
+            background-color: transparent;
+
+            &:after {
+                box-shadow: inset 0 0 0 0.3rem $white, inset 0 0 0 0.6rem $color-secondary;
+            }
+        }
+    }
+}

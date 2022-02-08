@@ -1,0 +1,356 @@
+@use "sass:math";
+
+.MuiButton {
+    $this: &;
+
+    &-root {
+        font-family: $font-family;
+        font-size: $btn-font-size;
+        font-weight: $btn-font-weight;
+        line-height: $btn-line-height;
+        text-transform: initial;
+        min-width: 0;
+        border-radius: $btn-border-radius;
+        transition: $btn-transition;
+
+        &.Mui-disabled {
+            opacity: $btn-disabled-opacity;
+        }
+    }
+
+    &-focusVisible.Mui-focusVisible {
+        box-shadow: $btn-focus-visible-box-shadow;
+    }
+
+    &-sizeLarge {
+        font-size: $btn-large-font-size;
+        padding: 0 $btn-large-padding-x;
+        min-height: $btn-large-min-height;
+    }
+
+    &-sizeMedium {
+        font-size: $btn-medium-font-size;
+        padding: 0 $btn-medium-padding-x;
+        min-height: $btn-medium-min-height;
+    }
+
+    &-sizeSmall {
+        font-size: $btn-small-font-size;
+        padding: 0 $btn-small-padding-x;
+        min-height: $btn-small-min-height;
+    }
+
+    &-outlined,
+    &-text {
+        .MuiIcon-root {
+            color: $icon-color;
+        }
+    }
+
+    &-contained,
+    &-contrast {
+        $selector: &;
+
+        background-color: $btn-bg-color;
+        color: $btn-color;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: inherit;
+            background-color: rgba($btn-bg-color, $btn-hover-opacity);
+        }
+
+        &.Mui-disabled {
+            @extend #{$selector};
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+
+        .MuiIcon-root {
+            color: rgba($btn-color, 0.65);
+        }
+
+        &Primary {
+            $selector: &;
+
+            color: $white;
+            background-color: $color-primary;
+
+            &:hover {
+                background-color: rgba($color-primary, $btn-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                @extend #{$selector};
+            }
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+
+        &Secondary {
+            $selector: &;
+
+            color: $white;
+            background-color: $color-secondary;
+
+            &:hover {
+                background-color: rgba($color-secondary, $btn-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                @extend #{$selector};
+            }
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+    }
+
+    &-outlined {
+        $selector: &;
+
+        border-width: $btn-border-width;
+        border-color: $btn-bg-color;
+
+        &.Mui-disabled {
+            @extend #{$selector};
+        }
+
+        &:hover {
+            @extend #{$selector};
+            background-color: rgba($btn-color, $btn-outlined-hover-opacity);
+        }
+
+        &SizeLarge {
+            padding: 0 calc(#{$btn-large-padding-x} - #{$btn-border-width});
+        }
+
+        &SizeMedium {
+            padding: 0 calc(#{$btn-medium-padding-x} - #{$btn-border-width});
+        }
+
+        &SizeSmall {
+            padding: 0 calc(#{$btn-small-padding-x} - #{$btn-border-width});
+        }
+
+        &Primary {
+            $selector: &;
+
+            color: $color-primary;
+            border-width: $btn-border-width;
+            border-color: rgba($color-primary, $btn-outlined-border-opacity);
+
+            &:hover {
+                @extend #{$selector};
+                background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                @extend #{$selector};
+            }
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+
+        &Secondary {
+            $selector: &;
+
+            color: $color-secondary;
+            border-color: rgba($color-secondary, $btn-outlined-border-opacity);
+
+            &:hover {
+                @extend #{$selector};
+                background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                @extend #{$selector};
+            }
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+    }
+
+    &-text {
+        $selector: &;
+
+        &:hover {
+            background-color: rgba($btn-color, $btn-outlined-hover-opacity);
+        }
+
+        &.Mui-disabled {
+            @extend #{$selector};
+        }
+
+        &Primary {
+            $selector: &;
+
+            color: $color-primary;
+
+            &:hover {
+                background-color: rgba($color-primary, $btn-outlined-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                @extend #{$selector};
+            }
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+
+        &Secondary {
+            $selector: &;
+
+            color: $color-secondary;
+
+            &:hover {
+                background-color: rgba($color-secondary, $btn-outlined-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                @extend #{$selector};
+            }
+
+            .MuiIcon-root {
+                color: currentColor;
+            }
+        }
+    }
+
+    // Custom variant
+    &-contrast {
+        background-color: $gray-darken-3;
+        color: $white;
+
+        .MuiIcon-root {
+            color: currentColor;
+        }
+
+        &Inherit {
+            &:hover {
+                background-color: rgba($gray-darken-3, $btn-hover-opacity);
+            }
+
+            &.Mui-disabled {
+                background-color: #d1d1d1;
+                color: $white;
+                opacity: 1;
+            }
+        }
+    }
+
+    &-startIcon,
+    &-endIcon {
+        margin: 0;
+
+        & > *:nth-of-type(1) {
+            font-size: inherit;
+
+            &.MuiIcon {
+                @include icon-font-sizes;
+            }
+        }
+    }
+
+    &-startIcon {
+        &#{$this}-iconSizeLarge {
+            margin-right: $btn-large-padding-x - $spacing-scale-1;
+        }
+
+        &#{$this}-iconSizeMedium {
+            margin-right: $btn-medium-padding-x - $spacing-scale-1;
+        }
+
+        &#{$this}-iconSizeSmall {
+            margin-right: $btn-small-padding-x - $spacing-scale-1;
+        }
+    }
+
+    &-endIcon {
+        &#{$this}-iconSizeLarge {
+            margin-left: math.div($btn-large-padding-x, 2);
+        }
+
+        &#{$this}-iconSizeMedium {
+            margin-left: math.div($btn-medium-padding-x, 2);
+        }
+
+        &#{$this}-iconSizeSmall {
+            margin-left: math.div($btn-small-padding-x, 2);
+        }
+    }
+
+    &-iconSizeLarge {
+        font-size: $icon-large-font-size;
+
+        .MuiCircularProgress-root {
+            width: $icon-large-font-size;
+            height: $icon-large-font-size;
+        }
+    }
+
+    &-iconSizeMedium {
+        font-size: $icon-medium-font-size;
+
+        .MuiCircularProgress-root {
+            width: $icon-medium-font-size;
+            height: $icon-medium-font-size;
+        }
+    }
+
+    &-iconSizeSmall {
+        font-size: $icon-small-font-size;
+
+        .MuiCircularProgress-root {
+            width: $icon-small-font-size;
+            height: $icon-small-font-size;
+        }
+    }
+
+    // Custom classes that are added with className property
+
+    &-iconOnly {
+        padding: 0;
+
+        &#{$this}-colorInherit {
+            color: $icon-color;
+        }
+
+        &#{$this}-sizeLarge {
+            min-width: $btn-large-min-height;
+        }
+
+        &#{$this}-sizeMedium {
+            min-width: $btn-medium-min-height;
+        }
+
+        &#{$this}-sizeSmall {
+            min-width: $btn-small-min-height;
+        }
+
+        & #{$this}-startIcon {
+            margin-right: 0;
+        }
+    }
+
+    &-justifyStart {
+        &#{$this}-root {
+            justify-content: flex-start;
+        }
+
+        #{$this}-endIcon {
+            margin-left: auto;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.MuiCustomLinkedList {
+    @include disable-focus-outline;
+
+    .MuiLinkedListGroupHeader {
+        position: sticky;
+        top: 0;
+        background-color: $paper-bg-color;
+        margin-bottom: $spacing-scale-4;
+        box-shadow: 1px 0 0 1px $border-color;
+        z-index: 1;
+    }
+}

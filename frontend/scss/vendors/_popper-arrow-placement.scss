@@ -1,0 +1,51 @@
+@use "sass:math";
+
+@mixin popper-arrow-placement($el_selector, $arrow-size: 1.2rem) {
+    &[data-popper-placement^='bottom'] {
+        #{$el_selector}__arrow {
+            top: 0;
+
+            &::before {
+                top: math.div($arrow-size, -2);
+                border-bottom-width: 0;
+                border-right-width: 0;
+            }
+        }
+    }
+
+    &[data-popper-placement^='top'] {
+        #{$el_selector}__arrow {
+            bottom: 0;
+
+            &::before {
+                bottom: math.div($arrow-size, -2);
+                border-top-width: 0;
+                border-left-width: 0;
+            }
+        }
+    }
+
+    &[data-popper-placement^='right'] {
+        #{$el_selector}__arrow {
+            left: 0;
+
+            &::before {
+                left: math.div($arrow-size, -2);
+                border-top-width: 0;
+                border-right-width: 0;
+            }
+        }
+    }
+
+    &[data-popper-placement^='left'] {
+        #{$el_selector}__arrow {
+            right: 0;
+
+            &::before {
+                right: math.div($arrow-size, -2);
+                border-bottom-width: 0;
+                border-left-width: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.sub-header {
+    background-color: $white;
+    padding: $spacing-scale-12 0;
+    box-shadow: 0 0.2rem 0 -0.1rem $border-color;
+
+    &__container {
+        display: grid;
+        grid-template-columns: max-content minmax(20rem, 26rem) minmax(20rem, 1fr);
+        grid-gap: $spacing-scale-12;
+    }
+}

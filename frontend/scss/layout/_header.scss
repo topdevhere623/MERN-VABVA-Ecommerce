@@ -1,0 +1,74 @@
+$header-color: $white;
+$header-bg-color: $body-color;
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $body-color;
+    color: $header-color;
+    min-height: 7.2rem;
+
+    &__container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__brand {
+        width: 13.4rem;
+        height: 3.2rem;
+
+        &-link {
+            display: block;
+            line-height: 0;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-left: auto;
+        color: inherit;
+
+        & > *:not(:last-of-type) {
+            margin-right: $spacing-scale-4;
+        }
+
+        &-btn {
+            font-size: $font-size-xmedium;
+            padding: 0 $spacing-scale-6;
+
+            &:hover {
+                background-color: rgba($header-color, 0.12);
+            }
+
+            .MuiButton {
+                &-startIcon {
+                    margin-right: $spacing-scale-6 - $spacing-scale-1;
+                }
+                &-endIcon {
+                    margin-left: $spacing-scale-2;
+                }
+            }
+
+            .MuiIcon {
+                &-root {
+                    color: currentColor;
+                }
+            }
+
+            .MuiBadge {
+                &-badge {
+                    $badge-offset: -0.1rem;
+
+                    top: $badge-offset;
+                    right: $badge-offset;
+                }
+            }
+        }
+    }
+}

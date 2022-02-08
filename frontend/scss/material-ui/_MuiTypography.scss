@@ -1,0 +1,91 @@
+.MuiTypography {
+    &-root {
+        font-family: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+    }
+
+    &-h1 {
+        font-size: $heading-1-font-size;
+        font-weight: $heading-font-weight;
+    }
+
+    &-h2 {
+        font-size: $heading-2-font-size;
+        font-weight: $heading-font-weight;
+    }
+
+    &-h3 {
+        font-size: $heading-3-font-size;
+        font-weight: $heading-font-weight;
+    }
+
+    &-h4 {
+        font-size: $heading-4-font-size;
+        font-weight: $heading-font-weight;
+    }
+
+    &-h5 {
+        font-size: $heading-5-font-size;
+        font-weight: $heading-font-weight;
+    }
+
+    &-h6 {
+        font-size: $heading-6-font-size;
+        font-weight: $heading-font-weight;
+    }
+
+    &-subtitle1 {
+        font-size: $heading-6-font-size;
+        font-weight: $heading-font-weight;
+        margin-right: $heading-gutter-right;
+    }
+
+    &-subtitle2 {
+        font-size: $heading-6-font-size;
+        font-weight: $font-weight;
+        margin-right: $heading-gutter-right;
+    }
+
+    &-subtitle3 {
+        font-size: $font-size-medium;
+        font-weight: $heading-font-weight;
+        margin-right: $heading-gutter-right;
+    }
+
+    &-body1 {
+        font-size: $font-size-medium;
+        line-height: inherit;
+    }
+
+    &-body2 {
+        font-size: $font-size-small;
+        line-height: inherit;
+    }
+
+    &-subtitle-primary {
+        color: $color-secondary;
+        font-weight: $font-weight-strong;
+    }
+
+    &-subtitle-secondary {
+        color: $color-secondary;
+        font-weight: $font-weight-strong;
+    }
+
+    &-inherit-primary {
+        color: $color-secondary;
+    }
+
+    &-inherit-secondary {
+        color: $color-secondary;
+    }
+
+    &-note {
+        color: $color-text-note;
+    }
+
+    &-gutterBottom {
+        margin-bottom: $heading-gutter-bottom;
+    }
+}

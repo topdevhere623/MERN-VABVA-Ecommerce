@@ -1,0 +1,37 @@
+@use '../../scss/functions' as *;
+@use '../../scss/variables' as *;
+
+// NOTE: The :export structure comes from webpack loader, it's not belong to sass.
+// Source: https://css-tricks.com/getting-javascript-to-talk-to-css-and-sass/
+
+:export {
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+    font-weight-strong: $font-weight-strong;
+    font-weight-thin: $font-weight-thin;
+    breakpoint-unit: px;
+    spacer: $spacer;
+
+    color-primary: $color-primary;
+    color-primary-light: $color-primary-light;
+    color-primary-dark: $color-primary-dark;
+    color-primary-text: $color-primary-text;
+
+    color-secondary: $color-secondary;
+    color-secondary-light: $color-secondary-light;
+    color-secondary-dark: $color-secondary-dark;
+    color-secondary-text: $color-secondary-text;
+
+    body-color: $body-color;
+    color-text-note: $color-text-note;
+}
+
+@each $breakpoint-key, $breakpoint in $breakpoints {
+    $value: $breakpoint;
+
+    :export {
+        breakpoint-#{$breakpoint-key}: $value;
+    }
+}

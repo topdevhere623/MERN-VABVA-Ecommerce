@@ -1,0 +1,72 @@
+.MuiCustomCheckbox {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border: 0.2rem solid $icon-color;
+    width: 1.9rem;
+    height: 1.9rem;
+    margin: 0.25rem;
+    line-height: 1;
+    background-color: $white;
+    border-radius: 0.3rem;
+    transition: background-color 0.15s;
+
+    &-checked {
+        border-color: $icon-color;
+        background-color: $icon-color;
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            bottom: 0;
+            right: 0;
+            width: 45%;
+            height: 80%;
+            border: 0.2rem solid $white;
+            border-top-width: 0;
+            border-left-width: 0;
+            transform: translate3d(-56%, -30%, 0) rotate(45deg);
+        }
+    }
+
+    &-indeterminate {
+        border-color: $icon-color;
+        background-color: $icon-color;
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            top: 50%;
+            left: 50%;
+            width: 65%;
+            height: 0.2rem;
+            background-color: $white;
+            border-radius: 0.1rem;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    }
+}
+
+.MuiCheckbox {
+    &-colorPrimary {
+        .MuiCustomCheckbox {
+            &-checked,
+            &-indeterminate {
+                border-color: $color-primary;
+                background-color: $color-primary;
+            }
+        }
+    }
+
+    &-colorSecondary {
+        .MuiCustomCheckbox {
+            &-checked,
+            &-indeterminate {
+                border-color: $color-secondary;
+                background-color: $color-secondary;
+            }
+        }
+    }
+}

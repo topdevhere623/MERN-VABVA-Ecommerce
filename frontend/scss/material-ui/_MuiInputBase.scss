@@ -1,0 +1,59 @@
+.MuiInputBase {
+    &-root {
+        font-family: inherit;
+        font-size: $input-base-font-size;
+        font-weight: $input-base-font-weight;
+        letter-spacing: $input-base-letter-spacing;
+        line-height: $input-base-line-height;
+        color: $input-base-color;
+
+        &.Mui-disabled {
+            color: $input-base-color;
+            opacity: $input-disabled-opacity;
+            cursor: auto;
+        }
+    }
+
+    &-input {
+        font: inherit;
+
+        &::placeholder {
+            opacity: $input-base-placeholder-opacity;
+        }
+
+        &.Mui-disabled {
+            -webkit-text-fill-color: inherit;
+            cursor: auto;
+        }
+
+        @include input-autofill($input-base-bg-color, $font-family, $input-base-font-size, $input-base-font-weight);
+    }
+}
+
+.MuiInputAdornment {
+    &-root {
+        color: $input-base-adornment-color;
+        font-size: $input-base-adornment-font-size;
+
+        .MuiCircularProgress-root {
+            width: $icon-medium-font-size;
+            height: $icon-medium-font-size;
+        }
+    }
+
+    &-positionStart {
+        margin-right: $input-base-padding-x - $spacing-scale-1;
+    }
+
+    &-positionEnd {
+        margin-left: $input-base-padding-x - $spacing-scale-1;
+
+        .MuiButtonBase {
+            &-root {
+                &:not(:last-of-type) {
+                    margin-right: $input-base-padding-x - $spacing-scale-1;
+                }
+            }
+        }
+    }
+}

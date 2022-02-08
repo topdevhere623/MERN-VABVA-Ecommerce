@@ -1,0 +1,44 @@
+.MuiButtonGroup {
+	$this: &;
+
+	&-root {
+		border-radius: 0;
+	}
+
+	&-root &-grouped {
+		&OutlinedPrimary {
+			&:hover {
+				border-color: $color-primary-dark;
+				color: $color-primary-dark;
+			}
+		}
+
+		&OutlinedSecondary {
+			&:hover {
+				border-color: $color-secondary-dark;
+				color: $color-secondary-dark;
+			}
+		}
+
+		&TextInherit,
+		&ContainedInherit {
+			&:not(:last-of-type) {
+				border-color: rgba($btn-color, .15);
+			}
+		}
+
+		&TextPrimary,
+		&ContainedPrimary {
+			&:not(:last-of-type) {
+				border-color: $color-primary-border-color;
+			}
+		}
+
+		&TextSecondary,
+		&ContainedSecondary {
+			&:not(:last-of-type) {
+				border-color: $color-secondary-border-color;
+			}
+		}
+	}
+}

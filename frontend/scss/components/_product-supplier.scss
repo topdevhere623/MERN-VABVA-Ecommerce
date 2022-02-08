@@ -1,0 +1,30 @@
+.product-supplier {
+    $this: &;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &--size-small {
+        #{$this}__img {
+            width: 6rem;
+            height: 6rem;
+            margin-right: $spacing-scale-4;
+        }
+
+        #{$this}__title {
+            font-size: inherit;
+            font-weight: $font-weight-strong;
+        }
+    }
+
+    &__body {
+        padding-top: $spacing-scale-2;
+        padding-bottom: $spacing-scale-8;
+    }
+
+    &__rating-container {
+        cursor: default;
+    }
+}

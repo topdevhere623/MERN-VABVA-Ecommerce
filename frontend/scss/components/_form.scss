@@ -1,0 +1,7 @@
+.form {
+    &__row {
+        &:not(:last-of-type) {
+            margin-bottom: $form-layout-gap;
+        }
+    }
+}

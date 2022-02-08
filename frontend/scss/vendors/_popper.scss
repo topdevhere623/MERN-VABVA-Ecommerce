@@ -1,0 +1,23 @@
+@use "popper-arrow-placement" as *;
+
+.popper {
+    $this: &;
+
+    &__arrow {
+        width: $popper-arrow-size;
+        height: $popper-arrow-size;
+        background-color: inherit;
+
+        &::before {
+            position: absolute;
+            content: '';
+            background-color: inherit;
+            width: inherit;
+            height: inherit;
+            border: $popper-arrow-border;
+            transform: rotate(45deg);
+        }
+    }
+
+    @include popper-arrow-placement($this, $popper-arrow-size);
+}

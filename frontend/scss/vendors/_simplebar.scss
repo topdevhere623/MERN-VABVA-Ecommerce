@@ -1,0 +1,47 @@
+.simplebar {
+    $this: &;
+
+    &-custom {
+        #{$this}-track#{$this}-vertical {
+            width: $simplebar-track-size;
+
+            #{$this}-scrollbar#{$this}-visible {
+                &:before {
+                    top: $simplebar-offset;
+                    right: $simplebar-offset;
+                    bottom: $simplebar-offset;
+                    left: $simplebar-offset;
+                }
+            }
+        }
+
+        #{$this}-track#{$this}-horizontal {
+            height: $simplebar-track-size;
+
+            #{$this}-scrollbar#{$this}-visible {
+                top: $simplebar-offset;
+                height: $simplebar-track-size - 2 * $simplebar-offset;
+
+                &:before {
+                    right: $simplebar-offset;
+                    left: $simplebar-offset;
+                }
+            }
+        }
+
+        #{$this}-scrollbar {
+            min-height: $simplebar-scrollbar-min-size;
+
+            &#{$this}-visible:before {
+                border-radius: $simplebar-track-size;
+                opacity: $simplebar-scrollbar-opacity;
+                background: $simplebar-scrollbar-bg-color;
+                transition: opacity 0.15s ease;
+            }
+
+            &#{$this}-visible#{$this}-hover:before {
+                opacity: $simplebar-scrollbar-hover-opacity;
+            }
+        }
+    }
+}

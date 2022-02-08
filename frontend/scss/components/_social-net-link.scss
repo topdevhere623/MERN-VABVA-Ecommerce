@@ -1,0 +1,28 @@
+.social-net-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background-color: #fff;
+
+    &--large {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    &--instagram {
+        background-color: #ffe6fa;
+    }
+    &--twitter {
+        background-color: #e7f5fe;
+    }
+    &--youtube {
+        background-color: #ffe6e6;
+    }
+    &--pinterest {
+        background-color: #fbe9ea;
+    }
+}
